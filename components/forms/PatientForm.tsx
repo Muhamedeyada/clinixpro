@@ -62,7 +62,7 @@ export const PatientForm = () => {
           control={form.control}
           name="name"
           label="Full name"
-          placeholder="John Doe"
+          placeholder="ahmed yasser"
           iconSrc="/assets/icons/user.svg"
           iconAlt="user"
         />

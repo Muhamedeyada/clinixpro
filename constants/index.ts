@@ -1,8 +1,7 @@
-export const GenderOptions = ["Male", "Female", "Other"];
+export const GenderOptions = ["Male", "Female"];
 
 export const PatientFormDefaultValues = {
-  firstName: "",
-  lastName: "",
+  name: "",
   email: "",
   phone: "",
   birthDate: new Date(Date.now()),
@@ -43,23 +42,23 @@ export const IdentificationTypes = [
 export const Doctors = [
   {
     image: "/assets/images/dr-green.png",
-    name: "John Green",
+    name: "ahmed nasser",
   },
   {
     image: "/assets/images/dr-cameron.png",
-    name: "Leila Cameron",
+    name: "Leila nasser",
   },
   {
     image: "/assets/images/dr-livingston.png",
-    name: "David Livingston",
+    name: "mohamed ahmed",
   },
   {
     image: "/assets/images/dr-peter.png",
-    name: "Evan Peter",
+    name: "nada mohamed",
   },
   {
     image: "/assets/images/dr-powell.png",
-    name: "Jane Powell",
+    name: "nasser ahmed",
   },
   {
     image: "/assets/images/dr-remirez.png",
@@ -67,15 +66,15 @@ export const Doctors = [
   },
   {
     image: "/assets/images/dr-lee.png",
-    name: "Jasmine Lee",
+    name: "Jasmine mahmoud",
   },
   {
     image: "/assets/images/dr-cruz.png",
-    name: "Alyana Cruz",
+    name: "Leila ahmed",
   },
   {
     image: "/assets/images/dr-sharma.png",
-    name: "Hardik Sharma",
+    name: "ahmed Shams",
   },
 ];
 

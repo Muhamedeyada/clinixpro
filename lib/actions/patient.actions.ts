@@ -65,7 +65,7 @@ export const registerPatient = async ({
     if (identificationDocument) {
       const inputFile =
         identificationDocument &&
-        InputFile.fromBlob(
+        InputFile.fromBuffer(
           identificationDocument?.get("blobFile") as Blob,
           identificationDocument?.get("fileName") as string,
         );
@@ -81,7 +81,7 @@ export const registerPatient = async ({
       {
         identificationDocumentId: file?.$id ? file.$id : null,
         identificationDocumentUrl: file?.$id
-          ? `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file.$id}/view??project=${PROJECT_ID}`
+          ? `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file.$id}/view?project=${PROJECT_ID}`
           : null,
         ...patient,
       },

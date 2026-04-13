@@ -119,7 +119,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.INPUT}
             control={form.control}
             name="name"
-            placeholder="John Doe"
+            placeholder="ahmed yasser"
             iconSrc="/assets/icons/user.svg"
             iconAlt="user"
           />
