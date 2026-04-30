@@ -2,277 +2,376 @@
 @config "../tailwind.config.ts";
 
 /* ========================================== TAILWIND STYLES */
+
+/* ===== SCROLLBAR */
 @utility remove-scrollbar {
   &::-webkit-scrollbar {
     width: 0px;
     height: 0px;
     border-radius: 0px;
   }
-
   &::-webkit-scrollbar-track {
     background: transparent;
   }
-
   &::-webkit-scrollbar-thumb {
     background: transparent;
     border-radius: 0px;
   }
-
   &::-webkit-scrollbar-thumb:hover {
-    /* background: #1e2238; */
     background: transparent;
   }
 }
 
-@layer utilities {
-  /* ===== UTILITIES */
-  .sidebar {
-    @apply remove-scrollbar w-full max-w-[18rem] flex-col overflow-auto bg-dark-400 px-7 py-10;
-  }
+/* ===== TYPOGRAPHY */
+@utility text-36-bold {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 700;
+}
 
-  .left-sidebar {
-    @apply hidden lg:flex;
-  }
+@utility text-24-bold {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+}
 
-  .right-sidebar {
-    @apply hidden xl:flex;
-  }
+@utility text-32-bold {
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 700;
+}
 
-  .clip-text {
-    @apply bg-clip-text text-transparent;
-  }
+@utility text-18-bold {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
 
-  .bg-image {
-    @apply bg-dark-200 bg-light-rays bg-cover bg-no-repeat;
-  }
+@utility text-16-semibold {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
 
-  .header {
-    @apply text-32-bold md:text-36-bold;
-  }
+@utility text-16-regular {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+}
 
-  .sub-header {
-    @apply text-18-bold md:text-24-bold;
-  }
+@utility text-14-medium {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+}
 
-  .container {
-    @apply relative flex-1 overflow-y-auto px-[5%];
-  }
+@utility text-14-regular {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+}
 
-  .sub-container {
-    @apply mx-auto flex size-full flex-col py-10;
-  }
+@utility text-12-regular {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
 
-  .side-img {
-    @apply hidden h-full object-cover md:block;
-  }
+@utility text-12-semibold {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
 
-  .copyright {
-    @apply text-14-regular justify-items-end text-center text-dark-600 xl:text-left;
-  }
+/* ===== LAYOUT */
+@utility sidebar {
+  @apply remove-scrollbar w-full max-w-[18rem] flex-col overflow-auto bg-dark-400 px-7 py-10;
+}
 
-  /* ==== SUCCESS */
-  .success-img {
-    @apply m-auto flex flex-1 flex-col items-center justify-between gap-10 py-10;
-  }
+@utility left-sidebar {
+  @apply hidden lg:flex;
+}
 
-  .request-details {
-    @apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-8 md:w-fit md:flex-row;
-  }
+@utility right-sidebar {
+  @apply hidden xl:flex;
+}
 
-  /* ===== ADMIN */
-  .admin-header {
-    @apply sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl bg-dark-200 px-[5%] py-5 shadow-lg xl:px-12;
-  }
+@utility clip-text {
+  @apply bg-clip-text text-transparent;
+}
 
-  .admin-main {
-    @apply flex flex-col items-center space-y-6 px-[5%] pb-12 xl:space-y-12 xl:px-12;
-  }
+@utility bg-image {
+  @apply bg-dark-200 bg-cover bg-no-repeat;
+}
 
-  .admin-stat {
-    @apply flex w-full flex-col justify-between gap-5 sm:flex-row xl:gap-10;
-  }
+@utility header {
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 700;
+}
 
-  /* ==== FORM */
-  .radio-group {
-    @apply flex h-full flex-1 items-center gap-2 rounded-md border border-dashed border-dark-500 bg-dark-400 p-3;
-  }
+@utility sub-header {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
 
-  .checkbox-label {
-    @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
-  }
+@utility container {
+  @apply relative flex-1 overflow-y-auto px-[5%];
+}
 
-  /* ==== File Upload */
-  .file-upload {
-    @apply text-12-regular flex cursor-pointer  flex-col items-center justify-center gap-3 rounded-md border border-dashed border-dark-500 bg-dark-400 p-5;
-  }
+@utility sub-container {
+  @apply mx-auto flex size-full flex-col py-10;
+}
 
-  .file-upload_label {
-    @apply flex flex-col justify-center gap-2 text-center text-dark-600;
-  }
+@utility side-img {
+  @apply hidden h-full object-cover md:block;
+}
 
-  /* ==== Stat Card */
-  .stat-card {
-    @apply flex flex-1 flex-col gap-6 rounded-2xl bg-cover p-6 shadow-lg;
-  }
+@utility copyright {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  text-align: center;
+  color: #76828d;
+}
 
-  /* ==== Status Badge */
-  .status-badge {
-    @apply flex w-fit items-center gap-2 rounded-full px-4 py-2;
-  }
+/* ==== SUCCESS */
+@utility success-img {
+  @apply m-auto flex flex-1 flex-col items-center justify-between gap-10 py-10;
+}
 
-  /* Data Table */
-  .data-table {
-    @apply z-10 w-full overflow-hidden rounded-lg border border-dark-400 shadow-lg;
-  }
+@utility request-details {
+  @apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-8 md:w-fit md:flex-row;
+}
 
-  .table-actions {
-    @apply flex w-full items-center justify-between space-x-2 p-4;
-  }
+/* ===== ADMIN */
+@utility admin-header {
+  @apply sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl bg-dark-200 px-[5%] py-5 shadow-lg xl:px-12;
+}
 
-  /* ===== ALIGNMENTS */
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
+@utility admin-main {
+  @apply flex flex-col items-center space-y-6 px-[5%] pb-12 xl:space-y-12 xl:px-12;
+}
 
-  .flex-between {
-    @apply flex items-center justify-between;
-  }
+@utility admin-stat {
+  @apply flex w-full flex-col justify-between gap-5 sm:flex-row xl:gap-10;
+}
 
-  /* ===== TYPOGRAPHY */
-  .text-36-bold {
-    @apply text-[36px] leading-[40px] font-bold;
-  }
+/* ==== FORM */
+@utility radio-group {
+  @apply flex h-full flex-1 items-center gap-2 rounded-md border border-dashed border-dark-500 bg-dark-400 p-3;
+}
 
-  .text-24-bold {
-    @apply text-[24px] leading-[28px] font-bold;
-  }
+@utility checkbox-label {
+  @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
+}
 
-  .text-32-bold {
-    @apply text-[32px] leading-[36px] font-bold;
-  }
+/* ==== File Upload */
+@utility file-upload {
+  @apply flex cursor-pointer flex-col items-center justify-center gap-3 rounded-md border border-dashed border-dark-500 bg-dark-400 p-5;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
 
-  .text-18-bold {
-    @apply text-[18px] leading-[24px] font-bold;
-  }
+@utility file-upload_label {
+  @apply flex flex-col justify-center gap-2 text-center text-dark-600;
+}
 
-  .text-16-semibold {
-    @apply text-[16px] leading-[20px] font-semibold;
-  }
+/* ==== Stat Card */
+@utility stat-card {
+  @apply flex flex-1 flex-col gap-6 rounded-2xl bg-cover p-6 shadow-lg;
+}
 
-  .text-16-regular {
-    @apply text-[16px] leading-[20px] font-normal;
-  }
+@utility status-badge {
+  @apply flex w-fit items-center gap-2 rounded-full px-4 py-2;
+}
 
-  .text-14-medium {
-    @apply text-[14px] leading-[18px] font-medium;
-  }
+/* Data Table */
+@utility data-table {
+  @apply z-10 w-full overflow-hidden rounded-lg border border-dark-400 shadow-lg;
+}
 
-  .text-14-regular {
-    @apply text-[14px] leading-[18px] font-normal;
-  }
+@utility table-actions {
+  @apply flex w-full items-center justify-between space-x-2 p-4;
+}
 
-  .text-12-regular {
-    @apply text-[12px] leading-[16px] font-normal;
-  }
+/* ===== ALIGNMENTS */
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
 
-  .text-12-semibold {
-    @apply text-[12px] leading-[16px] font-semibold;
-  }
+@utility flex-between {
+  @apply flex items-center justify-between;
+}
 
-  /* =====  SHADCN OVERRIDES */
-  .shad-primary-btn {
-    @apply bg-green-500 text-white !important;
-  }
+/* =====  REACT PHONE NUMBER INPUT OVERRIDES */
+@utility input-phone {
+  margin-top: 0.5rem;
+  height: 2.75rem;
+  border-radius: 0.375rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 0.875rem;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #1A1D21;
+  border-color: #363A3D;
+}
 
-  .shad-danger-btn {
-    @apply bg-red-700 text-white !important;
-  }
+/* =====  REACT DATE PICKER OVERRIDES */
+@utility date-picker {
+  overflow: hidden;
+  border-color: transparent;
+  width: 100%;
+  height: 2.75rem;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  outline: none;
+}
 
-  .shad-gray-btn {
-    @apply border border-dark-500 cursor-pointer bg-dark-400 text-white !important;
-  }
+/* =====  SHADCN OVERRIDES (plain CSS, no @apply !important) */
+.shad-primary-btn {
+  background-color: #24AE7C;
+  color: white;
+}
 
-  .shad-input-label {
-    @apply text-14-medium text-dark-700 !important;
-  }
+.shad-danger-btn {
+  background-color: #F24E43;
+  color: white;
+}
 
-  .shad-input {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
-  }
+.shad-gray-btn {
+  border: 1px solid #363A3D;
+  cursor: pointer;
+  background-color: #1A1D21;
+  color: white;
+}
 
-  .shad-input-icon {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
-  }
+.shad-input-label {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #ABB8C4;
+}
 
-  .shad-textArea {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
-  }
+.shad-input,
+.shad-input-icon {
+  background-color: #1A1D21;
+  border-color: #363A3D;
+  height: 2.75rem;
+}
+.shad-input:focus-visible,
+.shad-input-icon:focus-visible {
+  ring: 0;
+  ring-offset: 0;
+}
 
-  .shad-combobox-item {
-    @apply data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 !important;
-  }
+.shad-textArea {
+  background-color: #1A1D21;
+  border-color: #363A3D;
+}
+.shad-textArea:focus-visible {
+  ring: 0;
+  ring-offset: 0;
+}
 
-  .shad-combobox-trigger {
-    @apply h-11 !important;
-  }
+.shad-combobox-item[data-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
 
-  .shad-select-trigger {
-    @apply bg-dark-400  placeholder:text-dark-600 border-dark-500 h-11 focus:ring-0 focus:ring-offset-0 !important;
-  }
+.shad-combobox-trigger {
+  height: 2.75rem;
+}
 
-  .shad-select-content {
-    @apply bg-dark-400 border-dark-500 !important;
-  }
+.shad-select-trigger {
+  background-color: #1A1D21;
+  border-color: #363A3D;
+  height: 2.75rem;
+}
+.shad-select-trigger:focus {
+  ring: 0;
+  ring-offset: 0;
+}
 
-  .shad-dialog {
-    @apply bg-dark-400 border-dark-500 !important;
-  }
+.shad-select-content {
+  background-color: #1A1D21;
+  border-color: #363A3D;
+}
 
-  .shad-dialog button {
-    @apply focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
-  }
+.shad-dialog {
+  background-color: #1A1D21;
+  border-color: #363A3D;
+}
 
-  .shad-error {
-    @apply text-red-400 !important;
-  }
+.shad-dialog button:focus,
+.shad-dialog button:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
 
-  .shad-table {
-    @apply rounded-lg overflow-hidden !important;
-  }
+.shad-error {
+  color: #f87171;
+}
 
-  .shad-table-row-header {
-    @apply border-b border-dark-400 text-light-200 hover:bg-transparent !important;
-  }
+.shad-table {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
 
-  .shad-table-row {
-    @apply border-b border-dark-400 text-light-200 !important;
-  }
+.shad-table-row-header {
+  border-bottom: 1px solid #1A1D21;
+  color: #E8E9E9;
+}
+.shad-table-row-header:hover {
+  background: transparent;
+}
 
-  .shad-otp {
-    @apply w-full flex justify-between !important;
-  }
+.shad-table-row {
+  border-bottom: 1px solid #1A1D21;
+  color: #E8E9E9;
+}
 
-  .shad-otp-slot {
-    @apply text-36-bold justify-center flex border border-dark-500 rounded-lg size-16 gap-4 !important;
-  }
+.shad-otp {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
-  .shad-alert-dialog {
-    @apply space-y-5 bg-dark-400 border-dark-500 outline-none !important;
-  }
+.shad-otp-slot {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #363A3D;
+  border-radius: 0.5rem;
+  width: 4rem;
+  height: 4rem;
+}
 
-  .shad-sheet-content button {
-    @apply top-2 focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
-  }
+.shad-alert-dialog {
+  background-color: #1A1D21;
+  border-color: #363A3D;
+  outline: none;
+  gap: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
 
-  /* =====  REACT PHONE NUMBER INPUT OVERRIDES */
-  .input-phone {
-    @apply mt-2 h-11 rounded-md px-3 text-sm border bg-dark-400 placeholder:text-dark-600 border-dark-500 !important;
-  }
-
-  /* =====  REACT DATE PICKER OVERRIDES */
-  .date-picker {
-    @apply overflow-hidden border-transparent w-full placeholder:text-dark-600  h-11 text-14-medium rounded-md px-3 outline-none !important;
-  }
+.shad-sheet-content button:focus,
+.shad-sheet-content button:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border: none;
 }
 
 /* =====  REACT-DATEPICKER OVERRIDES */
