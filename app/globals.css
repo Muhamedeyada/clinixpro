@@ -1,26 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.ts";
 
 /* ========================================== TAILWIND STYLES */
-@layer base {
-  /* Remove scrollbar */
-  .remove-scrollbar::-webkit-scrollbar {
+@utility remove-scrollbar {
+  &::-webkit-scrollbar {
     width: 0px;
     height: 0px;
     border-radius: 0px;
   }
 
-  .remove-scrollbar::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     background: transparent;
   }
 
-  .remove-scrollbar::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb {
     background: transparent;
     border-radius: 0px;
   }
 
-  .remove-scrollbar::-webkit-scrollbar-thumb:hover {
+  &::-webkit-scrollbar-thumb:hover {
     /* background: #1e2238; */
     background: transparent;
   }
@@ -29,7 +27,7 @@
 @layer utilities {
   /* ===== UTILITIES */
   .sidebar {
-    @apply remove-scrollbar w-full max-w-72 flex-col overflow-auto bg-black-800 px-7 py-10;
+    @apply remove-scrollbar w-full max-w-[18rem] flex-col overflow-auto bg-dark-400 px-7 py-10;
   }
 
   .left-sidebar {
@@ -45,7 +43,7 @@
   }
 
   .bg-image {
-    @apply bg-black-900 bg-light-rays bg-cover bg-no-repeat;
+    @apply bg-dark-200 bg-light-rays bg-cover bg-no-repeat;
   }
 
   .header {
