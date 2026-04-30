@@ -13,7 +13,10 @@ import {
   createAppointment,
   updateAppointment,
 } from "@/lib/actions/appointment.actions";
-import { CreateAppointmentSchema, getAppointmentSchema } from "@/lib/validation";
+import {
+  CreateAppointmentSchema,
+  getAppointmentSchema,
+} from "@/lib/validation";
 import { Appointment } from "@/types/appwrite.types";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -53,9 +56,7 @@ export const AppointmentForm = ({
     },
   });
 
-  const onSubmit = async (
-    values: z.infer<typeof CreateAppointmentSchema>,
-  ) => {
+  const onSubmit = async (values: z.infer<typeof CreateAppointmentSchema>) => {
     setIsLoading(true);
 
     let status;
@@ -131,7 +132,7 @@ export const AppointmentForm = ({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit as any)} className="flex-1 space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
         {type === "create" && (
           <section className="mb-12 space-y-4">
             <h1 className="header">New Appointment</h1>

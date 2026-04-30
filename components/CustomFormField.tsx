@@ -2,6 +2,7 @@
 import { E164Number } from "libphonenumber-js/core";
 import Image from "next/image";
 import ReactDatePicker from "react-datepicker";
+import React, { useState, useEffect } from "react";
 import { Control } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 
@@ -156,6 +157,15 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
 
 const CustomFormField = (props: CustomProps) => {
   const { control, name, label } = props;
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null; // Or a skeleton/placeholder to prevent mismatch
+  }
 
   return (
     <FormField
