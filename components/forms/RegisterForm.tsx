@@ -65,7 +65,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         email: values.email,
         phone: values.phone,
         birthDate: new Date(values.birthDate),
-        gender: values.gender,
+        gender: values.gender.toLowerCase() as Gender,
         address: values.address,
         occupation: values.occupation,
         emergencyContactName: values.emergencyContactName,
@@ -76,22 +76,24 @@ const RegisterForm = ({ user }: { user: User }) => {
         allergies: values.allergies,
         currentMedication: values.currentMedication,
         familyMedicalHistory: values.familyMedicalHistory,
-        pastMedicalHistory: values.pastMedicalHistory,
+        postMedicalHistory: values.pastMedicalHistory,
         identificationType: values.identificationType,
         identificationNumber: values.identificationNumber,
         identificationDocument: values.identificationDocument
           ? formData
           : undefined,
         privacyConsent: values.privacyConsent,
+        treatmentConsent: values.treatmentConsent,
+        disclosureConsent: values.disclosureConsent,
       };
 
       const newPatient = await registerPatient(patient);
 
-      if (newPatient) {
+      if (newPatient && !newPatient.error) {
         router.push(`/patients/${user.$id}/new-appointment`);
       }
     } catch (error) {
-      console.log(error);
+      // Error handling
     }
 
     setIsLoading(false);

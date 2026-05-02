@@ -28,7 +28,6 @@ export const createAppointment = async (
     revalidatePath("/admin");
     return parseStringify(newAppointment);
   } catch (error: any) {
-    console.error("An error occurred while creating a new appointment:", error);
     return { error: error.message || "An unknown error occurred" };
   }
 };
@@ -74,10 +73,7 @@ export const getRecentAppointmentList = async () => {
 
     return parseStringify(data);
   } catch (error) {
-    console.error(
-      "An error occurred while retrieving the recent appointments:",
-      error,
-    );
+    // Error handling
   }
 };
 
@@ -120,7 +116,6 @@ export const updateAppointment = async ({
     revalidatePath("/admin");
     return parseStringify(updatedAppointment);
   } catch (error: any) {
-    console.error("An error occurred while scheduling an appointment:", error);
     return { error: error.message || "An unknown error occurred" };
   }
 };

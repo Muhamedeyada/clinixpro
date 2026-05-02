@@ -94,7 +94,6 @@ export const registerPatient = async ({
 
     return parseStringify(newPatient);
   } catch (error: any) {
-    console.error("An error occurred while creating a new patient:", error);
     return { error: error.message || "An unknown error occurred" };
   }
 };
@@ -110,9 +109,6 @@ export const getPatient = async (userId: string) => {
 
     return parseStringify(patients.documents[0]);
   } catch (error) {
-    console.error(
-      "An error occurred while retrieving the patient details:",
-      error,
-    );
+    // Error handling
   }
 };

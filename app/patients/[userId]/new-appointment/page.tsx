@@ -7,6 +7,8 @@ const Appointment = async ({ params }: SearchParamProps) => {
   const { userId } = await params;
   const patient = await getPatient(userId);
 
+  if (!patient) redirect(`/patients/${userId}/register`);
+
   return (
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container my-auto">

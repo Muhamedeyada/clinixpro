@@ -85,13 +85,13 @@ export const AppointmentForm = ({
 
         const newAppointment = await createAppointment(appointment);
 
-        if (newAppointment) {
+        if (newAppointment && !newAppointment.error) {
           form.reset();
           router.push(
             `/patients/${userId}/new-appointment/success?appointmentId=${newAppointment.$id}`,
           );
         }
-      } else {
+      } else if (type !== "create") {
         const appointmentToUpdate: UpdateAppointmentParams = {
           userId,
           appointmentId: appointment?.$id!,
@@ -107,7 +107,7 @@ export const AppointmentForm = ({
 
         const updatedAppointment = await updateAppointment(appointmentToUpdate);
 
-        if (updatedAppointment) {
+        if (updatedAppointment && !updatedAppointment.error) {
           setOpen && setOpen(false);
           form.reset();
         }

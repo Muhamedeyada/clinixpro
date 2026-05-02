@@ -33,11 +33,13 @@ declare interface RegisterUserParams extends CreateUserParams {
   allergies: string | undefined;
   currentMedication: string | undefined;
   familyMedicalHistory: string | undefined;
-  pastMedicalHistory: string | undefined;
+  postMedicalHistory: string | undefined;
   identificationType: string | undefined;
   identificationNumber: string | undefined;
   identificationDocument: FormData | undefined;
   privacyConsent: boolean;
+  treatmentConsent: boolean;
+  disclosureConsent: boolean;
 }
 
 declare type CreateAppointmentParams = {
