@@ -20,7 +20,14 @@ const Appointment = async ({ params }: SearchParamProps) => {
             height={1000}
             width={1000}
             alt="logo"
-            className="mb-12 h-10 w-fit"
+            className="mb-12 h-10 w-fit hidden dark:block"
+          />
+          <Image
+            src="/assets/icons/logo-full-light.svg"
+            height={1000}
+            width={1000}
+            alt="logo"
+            className="mb-12 h-10 w-fit block dark:hidden"
           />
 
           <AppointmentForm

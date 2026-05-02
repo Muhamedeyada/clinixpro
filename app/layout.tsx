@@ -38,8 +38,9 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <IntlProvider>
-            <div className="fixed top-3 right-3 z-50 flex items-center gap-1">
+            <div className="fixed top-4 ltr:right-4 rtl:left-4 z-50 flex items-center gap-2 p-1 bg-white/10 dark:bg-dark-500/50 backdrop-blur-md rounded-full border border-dark-500/30 shadow-lg">
               <ThemeToggle />
+              <div className="w-[1px] h-4 bg-dark-500/50 mx-1" />
               <LanguageToggle />
             </div>
             {children}

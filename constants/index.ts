@@ -41,39 +41,39 @@ export const IdentificationTypes = [
 
 export const Doctors = [
   {
-    image: "/assets/images/dr-green.png",
+    image: "/assets/images/dr-green-v2.png",
     name: "Ahmed Nasser",
   },
   {
-    image: "/assets/images/dr-cameron.png",
+    image: "/assets/images/dr-cameron-v2.png",
     name: "Leila Nasser",
   },
   {
-    image: "/assets/images/dr-livingston.png",
+    image: "/assets/images/dr-livingston-v2.png",
     name: "Mohamed Ahmed",
   },
   {
-    image: "/assets/images/dr-peter.png",
+    image: "/assets/images/dr-peter-v2.png",
     name: "Nada Mohamed",
   },
   {
-    image: "/assets/images/dr-powell.png",
+    image: "/assets/images/dr-powell-v2.png",
     name: "Nasser Ahmed",
   },
   {
-    image: "/assets/images/dr-remirez.png",
+    image: "/assets/images/dr-remirez-v2.png",
     name: "Mahmoud Hassan",
   },
   {
-    image: "/assets/images/dr-lee.png",
+    image: "/assets/images/dr-lee-v2.png",
     name: "Jasmine Mahmoud",
   },
   {
-    image: "/assets/images/dr-cruz.png",
+    image: "/assets/images/dr-cruz-v2.png",
     name: "Leila Ahmed",
   },
   {
-    image: "/assets/images/dr-sharma.png",
+    image: "/assets/images/dr-sharma-v2.png",
     name: "Ahmed Shams",
   },
 ];

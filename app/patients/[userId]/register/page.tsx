@@ -21,7 +21,14 @@ const Register = async ({ params }: SearchParamProps) => {
             height={1000}
             width={1000}
             alt="patient"
-            className="mb-12 h-10 w-fit"
+            className="mb-12 h-10 w-fit hidden dark:block"
+          />
+          <Image
+            src="/assets/icons/logo-full-light.svg"
+            height={1000}
+            width={1000}
+            alt="patient"
+            className="mb-12 h-10 w-fit block dark:hidden"
           />
 
           <RegisterForm user={user} />
@@ -31,7 +38,7 @@ const Register = async ({ params }: SearchParamProps) => {
       </section>
 
       <Image
-        src="/assets/images/register-img.png"
+        src="/assets/images/register-img-v2.png"
         height={1000}
         width={1000}
         alt="patient"
