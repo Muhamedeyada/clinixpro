@@ -26,7 +26,7 @@ export function useColumns(): ColumnDef<Appointment>[] {
       header: t("patient"),
       cell: ({ row }) => {
         const appointment = row.original;
-        return <p className="text-14-medium">{appointment.patient.name}</p>;
+        return <p className="text-14-medium whitespace-nowrap">{appointment.patient.name}</p>;
       },
     },
     {
@@ -47,7 +47,7 @@ export function useColumns(): ColumnDef<Appointment>[] {
       cell: ({ row }) => {
         const appointment = row.original;
         return (
-          <p className="text-14-regular min-w-[100px]">
+          <p className="text-14-regular min-w-[100px] whitespace-nowrap">
             {formatDateTime(appointment.schedule).dateTime}
           </p>
         );
