@@ -13,7 +13,7 @@ const RequestSuccess = async ({ searchParams, params }: SearchParamProps) => {
   const appointment = await getAppointment(appointmentId as string);
 
   const doctor = Doctors.find(
-    (doctor) => doctor.name === appointment.primaryPhysician
+    (doctor) => doctor.name === appointment.primaryPhysician,
   );
 
   return (
@@ -72,7 +72,7 @@ const RequestSuccess = async ({ searchParams, params }: SearchParamProps) => {
           </Link>
         </Button>
 
-        <p className="copyright">© 2024 CarePluse</p>
+        <p className="copyright">© 2024 ClinixPro</p>
       </div>
     </div>
   );
