@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
@@ -44,11 +44,19 @@ const idTypeKeyMap: Record<string, string> = {
 const RegisterForm = ({ user }: { user: User }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [step, setStep] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const t = useTranslations("registerForm");
   const tGender = useTranslations("gender");
   const tIdTypes = useTranslations("identificationTypes");
-
 
   const form = useForm<z.infer<typeof PatientFormValidation>>({
     resolver: zodResolver(PatientFormValidation),
@@ -116,6 +124,19 @@ const RegisterForm = ({ user }: { user: User }) => {
     }
 
     setIsLoading(false);
+  };
+
+  const onError = (errors: any) => {
+    console.log("Form Validation Errors:", errors);
+    if (!isMobile) return;
+    const firstErrorField = Object.keys(errors)[0];
+    const step1Fields = [
+      "name", "email", "phone", "birthDate", "gender", "address", 
+      "occupation", "emergencyContactName", "emergencyContactNumber",
+      "primaryPhysician", "insuranceProvider", "insurancePolicyNumber"
+    ];
+    if (step1Fields.includes(firstErrorField)) setStep(1);
+    else setStep(2);
   };
 
   const personalInfo = (
@@ -236,7 +257,7 @@ const RegisterForm = ({ user }: { user: User }) => {
   );
 
   const medicalInfo = (
-    <section className="space-y-6">
+    <section className="space-y-6 mt-12 md:mt-0">
       <div className="mb-9 space-y-1">
         <h2 className="sub-header">{t("medicalInfo")}</h2>
       </div>
@@ -403,7 +424,7 @@ const RegisterForm = ({ user }: { user: User }) => {
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit(onSubmit, onError)}
         className="flex-1 space-y-12 pb-20"
       >
         <section className="space-y-4">
@@ -411,13 +432,62 @@ const RegisterForm = ({ user }: { user: User }) => {
           <p className="text-dark-700">{t("subtitle")}</p>
         </section>
 
-        {personalInfo}
-        {medicalInfo}
-        {idAndConsent}
-        <SubmitButton isLoading={isLoading}>{t("submit")}</SubmitButton>
+        {!isMobile ? (
+          <>
+            {personalInfo}
+            {medicalInfo}
+            {idAndConsent}
+            <SubmitButton isLoading={isLoading}>{t("submit")}</SubmitButton>
+          </>
+        ) : (
+          <>
+            {step === 1 && (
+              <>
+                {personalInfo}
+                {medicalInfo}
+              </>
+            )}
+            {step === 2 && idAndConsent}
+
+            <div className="flex flex-col gap-4 md:flex-row mt-12">
+              {step === 2 && (
+                <button
+                  type="button"
+                  onClick={() => setStep(1)}
+                  className="shad-gray-btn h-11 w-full rounded-md md:w-32"
+                >
+                  {t("back")}
+                </button>
+              )}
+
+              {step === 1 ? (
+                <button
+                  type="button"
+                  onClick={async () => {
+                    const fields = [
+                      "name", "email", "phone", "birthDate", "gender", "address", 
+                      "occupation", "emergencyContactName", "emergencyContactNumber",
+                      "primaryPhysician", "insuranceProvider", "insurancePolicyNumber"
+                    ];
+                    const isValid = await form.trigger(fields as any);
+                    if (isValid) setStep(2);
+                  }}
+                  className="shad-primary-btn h-11 w-full rounded-md md:flex-1"
+                >
+                  {t("next")}
+                </button>
+              ) : (
+                <SubmitButton isLoading={isLoading} className="flex-1">
+                  {t("submit")}
+                </SubmitButton>
+              )}
+            </div>
+          </>
+        )}
       </form>
     </Form>
   );
 };
 
 export default RegisterForm;
+
