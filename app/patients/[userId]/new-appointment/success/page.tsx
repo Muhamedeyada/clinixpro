@@ -6,12 +6,11 @@ import { Doctors } from "@/constants";
 import { getAppointment } from "@/lib/actions/appointment.actions";
 import { formatDateTime } from "@/lib/utils";
 
-const RequestSuccess = async ({
-  searchParams,
-  params: { userId },
-}: SearchParamProps) => {
-  const appointmentId = (searchParams?.appointmentId as string) || "";
-  const appointment = await getAppointment(appointmentId);
+const RequestSuccess = async ({ searchParams, params }: SearchParamProps) => {
+  const { userId } = await params;
+  const { appointmentId } = await searchParams;
+
+  const appointment = await getAppointment(appointmentId as string);
 
   const doctor = Doctors.find(
     (doctor) => doctor.name === appointment.primaryPhysician
