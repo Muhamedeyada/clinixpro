@@ -186,7 +186,10 @@
 
 /* ===== ADMIN */
 @utility admin-header {
-  @apply sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl bg-dark-200 px-[5%] py-5 shadow-lg xl:px-12;
+  @apply sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl px-[5%] py-4 shadow-lg xl:px-12;
+  background-color: var(--dark-400);
+  border: 1px solid var(--dark-500);
+  backdrop-filter: blur(12px);
 }
 
 @utility admin-main {
@@ -221,7 +224,14 @@
 
 /* ==== Stat Card */
 @utility stat-card {
-  @apply flex flex-1 flex-col gap-6 rounded-2xl bg-cover p-6 shadow-lg;
+  @apply flex flex-1 flex-col gap-6 rounded-2xl p-6 shadow-md border border-transparent;
+  background-color: var(--dark-400);
+  border-color: var(--dark-500);
+  transition: box-shadow 0.2s, transform 0.2s;
+  &:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+  }
 }
 
 @utility status-badge {
@@ -230,7 +240,9 @@
 
 /* Data Table */
 @utility data-table {
-  @apply z-10 w-full rounded-lg border border-dark-500 shadow-lg;
+  @apply z-10 w-full rounded-xl border shadow-md overflow-hidden;
+  border-color: var(--dark-500);
+  background-color: var(--dark-400);
 }
 
 @utility table-actions {
@@ -375,6 +387,10 @@
 .shad-table-row-header {
   border-bottom: 1px solid var(--dark-500);
   color: var(--foreground);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .shad-table-row-header:hover {
   background: transparent;
@@ -383,6 +399,10 @@
 .shad-table-row {
   border-bottom: 1px solid var(--dark-500);
   color: var(--foreground);
+  transition: background-color 0.15s;
+}
+.shad-table-row:hover {
+  background-color: var(--dark-300);
 }
 
 .shad-otp {
@@ -565,5 +585,45 @@ input[type="radio"],
 [dir="rtl"] .react-datepicker-wrapper {
   width: 100%;
 }
+/* ===== RTL: TABLE ALIGNMENT */
+[dir="rtl"] th,
+[dir="rtl"] td {
+  text-align: right;
+}
 
+[dir="ltr"] th,
+[dir="ltr"] td {
+  text-align: left;
+}
 
+/* ===== RTL: STAT CARD */
+[dir="rtl"] .stat-card {
+  align-items: flex-end;
+}
+
+[dir="rtl"] .stat-card .flex {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .stat-card p {
+  text-align: right;
+  width: 100%;
+}
+
+[dir="ltr"] .stat-card {
+  align-items: flex-start;
+}
+
+[dir="ltr"] .stat-card p {
+  text-align: left;
+}
+
+/* ===== RTL: ADMIN HEADER */
+[dir="rtl"] .admin-header {
+  flex-direction: row-reverse;
+}
+
+/* ===== RTL: TABLE ACTIONS (pagination buttons) */
+[dir="rtl"] .table-actions {
+  flex-direction: row-reverse;
+}

@@ -33,7 +33,7 @@ const idTypeKeyMap: Record<string, string> = {
   "Medical Insurance Card/Policy": "medicalInsurance",
   "Military ID Card": "militaryId",
   "National Identity Card": "nationalId",
-  "Passport": "passport",
+  Passport: "passport",
   "Resident Alien Card (Green Card)": "residentAlien",
   "Social Security Card": "socialSecurity",
   "State ID Card": "stateId",
@@ -185,7 +185,7 @@ const RegisterForm = ({ user }: { user: User }) => {
                       <div key={option + i} className="radio-group">
                         <RadioGroupItem value={option} id={option} />
                         <Label htmlFor={option} className="cursor-pointer">
-                          {tGender(option as "Male" | "Female" | "Other")}
+                          {tGender(option as "Male" | "Female")}
                         </Label>
                       </div>
                     ))}
@@ -330,7 +330,8 @@ const RegisterForm = ({ user }: { user: User }) => {
             {IdentificationTypes.map((type, i) => (
               <SelectItem key={type + i} value={type}>
                 {tIdTypes(
-                  (idTypeKeyMap[type] ?? "birthCertificate") as keyof typeof import("@/messages/en.json")["identificationTypes"]
+                  (idTypeKeyMap[type] ??
+                    "birthCertificate") as keyof (typeof import("@/messages/en.json"))["identificationTypes"],
                 )}
               </SelectItem>
             ))}

@@ -134,8 +134,7 @@
   },
   "gender": {
     "Male": "Male",
-    "Female": "Female",
-    "Other": "Other"
+    "Female": "Female"
   },
   "identificationTypes": {
     "birthCertificate": "Birth Certificate",

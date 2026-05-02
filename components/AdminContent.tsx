@@ -26,18 +26,27 @@ export function AdminContent({
   const columns = useColumns();
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col space-y-14">
+    <div className="mx-auto flex max-w-7xl flex-col space-y-14 min-h-screen py-6 bg-[var(--dark-200)]">
       <header className="admin-header">
-        <Link href="/" className="cursor-pointer">
+        <Link href="/" className="cursor-pointer flex items-center">
+          {/* Dark mode logo */}
           <Image
             src="/assets/icons/logo-full.svg"
             height={32}
             width={162}
             alt="logo"
-            className="h-8 w-fit"
+            className="h-8 w-fit hidden dark:block"
+          />
+          {/* Light mode logo */}
+          <Image
+            src="/assets/icons/logo-full-light.svg"
+            height={32}
+            width={162}
+            alt="logo"
+            className="h-8 w-fit block dark:hidden"
           />
         </Link>
-        <p className="text-16-semibold">{t("title")}</p>
+        <p className="text-16-semibold text-foreground">{t("title")}</p>
       </header>
 
       <main className="admin-main">

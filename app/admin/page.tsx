@@ -5,12 +5,14 @@ const AdminPage = async () => {
   const appointments = await getRecentAppointmentList();
 
   return (
-    <AdminContent
-      scheduledCount={appointments.scheduledCount}
-      pendingCount={appointments.pendingCount}
-      cancelledCount={appointments.cancelledCount}
-      appointments={appointments.documents}
-    />
+    <div className="min-h-screen w-full bg-[var(--dark-200)]">
+      <AdminContent
+        scheduledCount={appointments.scheduledCount}
+        pendingCount={appointments.pendingCount}
+        cancelledCount={appointments.cancelledCount}
+        appointments={appointments.documents}
+      />
+    </div>
   );
 };
 
