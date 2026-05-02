@@ -28,23 +28,23 @@ export const StatCard = ({ count = 0, icon, type, label }: StatCardProps) => {
         borderInlineStartWidth: "4px",
       }}
     >
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 w-full">
         <div
-          className="flex items-center justify-center rounded-xl p-2"
-          style={{ backgroundColor: `${accentColor}20` }}
+          className="flex items-center justify-center rounded-xl p-3 shadow-sm"
+          style={{ backgroundColor: `${accentColor}15` }}
         >
           <Image
             src={icon}
-            height={28}
-            width={28}
+            height={32}
+            width={32}
             alt="stat icon"
-            className="size-7 w-fit"
+            className="size-8 w-fit"
           />
         </div>
         <h2 className="text-32-bold text-foreground">{count}</h2>
       </div>
 
-      <p className="text-14-regular text-[var(--muted-foreground)]">
+      <p className="text-14-medium text-[var(--muted-foreground)] w-full text-start">
         {displayLabel}
       </p>
     </div>

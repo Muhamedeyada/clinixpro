@@ -26,7 +26,7 @@ export function AdminContent({
   const columns = useColumns();
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col space-y-14 min-h-screen py-6 bg-[var(--dark-200)]">
+    <div className="flex flex-col min-h-screen bg-[var(--dark-200)]">
       <header className="admin-header">
         <Link href="/" className="cursor-pointer flex items-center">
           {/* Dark mode logo */}
@@ -46,10 +46,10 @@ export function AdminContent({
             className="h-8 w-fit block dark:hidden"
           />
         </Link>
-        <p className="text-16-semibold text-foreground">{t("title")}</p>
+        <p className="text-16-semibold text-foreground hidden md:block">{t("title")}</p>
       </header>
 
-      <main className="admin-main">
+      <main className="admin-main mx-auto w-full max-w-7xl pt-10">
         <section className="w-full space-y-4">
           <h1 className="header">{t("welcome")}</h1>
           <p className="text-dark-700">{t("description")}</p>
