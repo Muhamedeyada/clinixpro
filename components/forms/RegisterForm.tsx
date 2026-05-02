@@ -83,7 +83,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         email: values.email,
         phone: values.phone,
         birthDate: new Date(values.birthDate).toISOString(),
-        gender: values.gender as Gender,
+        gender: values.gender.toLowerCase() as Gender,
         address: values.address,
         occupation: values.occupation,
         emergencyContactName: values.emergencyContactName,
