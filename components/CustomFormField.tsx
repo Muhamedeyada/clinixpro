@@ -46,6 +46,7 @@ interface CustomProps {
   children?: React.ReactNode;
   renderSkeleton?: (field: any) => React.ReactNode;
   fieldType: FormFieldType;
+  required?: boolean;
 }
 
 const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
@@ -109,6 +110,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
             />
             <label htmlFor={props.name} className="checkbox-label">
               {props.label}
+              {props.required && <span className="text-red-500 ms-1">*</span>}
             </label>
           </div>
         </FormControl>
@@ -158,7 +160,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
 };
 
 const CustomFormField = (props: CustomProps) => {
-  const { control, name, label } = props;
+  const { control, name, label, required } = props;
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -176,7 +178,10 @@ const CustomFormField = (props: CustomProps) => {
       render={({ field }) => (
         <FormItem className="flex-1">
           {props.fieldType !== FormFieldType.CHECKBOX && label && (
-            <FormLabel className="shad-input-label">{label}</FormLabel>
+            <FormLabel className="shad-input-label">
+              {label}
+              {required && <span className="text-red-500 ms-1">*</span>}
+            </FormLabel>
           )}
           <RenderInput field={field} props={props} />
 

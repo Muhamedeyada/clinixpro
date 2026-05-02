@@ -18,6 +18,7 @@
     "identificationSection": "الهوية والتحقق",
     "consentSection": "الموافقة والخصوصية",
     "submit": "إرسال ومتابعة",
+    "nameLabel": "الاسم الكامل",
     "emailLabel": "عنوان البريد الإلكتروني",
     "phoneLabel": "رقم الهاتف",
     "phonePlaceholder": "+20 123 456 7890",
@@ -51,6 +52,8 @@
     "identificationNumberLabel": "رقم الهوية",
     "identificationNumberPlaceholder": "123456789",
     "identificationDocLabel": "نسخة ممسوحة ضوئياً من وثيقة الهوية",
+    "next": "التالي",
+    "back": "رجوع",
     "treatmentConsentLabel": "أوافق على تلقي العلاج لحالتي الصحية.",
     "disclosureConsentLabel": "أوافق على استخدام والإفصاح عن معلوماتي الصحية لأغراض العلاج.",
     "privacyConsentLabel": "أقر بأنني راجعت سياسة الخصوصية وأوافق عليها"

@@ -18,6 +18,7 @@
     "identificationSection": "Identification and Verification",
     "consentSection": "Consent and Privacy",
     "submit": "Submit and Continue",
+    "nameLabel": "Full name",
     "emailLabel": "Email address",
     "phoneLabel": "Phone Number",
     "phonePlaceholder": "+20 123 456 7890",
@@ -51,6 +52,8 @@
     "identificationNumberLabel": "Identification Number",
     "identificationNumberPlaceholder": "123456789",
     "identificationDocLabel": "Scanned Copy of Identification Document",
+    "next": "Next",
+    "back": "Back",
     "treatmentConsentLabel": "I consent to receive treatment for my health condition.",
     "disclosureConsentLabel": "I consent to the use and disclosure of my health information for treatment purposes.",
     "privacyConsentLabel": "I acknowledge that I have reviewed and agree to the privacy policy"
