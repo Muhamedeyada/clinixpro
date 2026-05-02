@@ -106,7 +106,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         postMedicalHistory: values.pastMedicalHistory,
         identificationType: values.identificationType,
         identificationNumber: values.identificationNumber,
-        identificationDocument: values.identificationDocument
+        identificationDocument: (values.identificationDocument && values.identificationDocument.length > 0)
           ? formData
           : undefined,
         privacyConsent: values.privacyConsent,
@@ -120,10 +120,22 @@ const RegisterForm = ({ user }: { user: User }) => {
         router.push(`/patients/${user.$id}/new-appointment`);
       }
     } catch (error) {
-      // Error handling
+      console.log("Registration Error:", error);
     }
 
     setIsLoading(false);
+  };
+
+  const onError = (errors: any) => {
+    console.log("Form Validation Errors:", errors);
+    // Automatically switch to the step that has the first error
+    const firstErrorField = Object.keys(errors)[0];
+    const step1Fields = ["name", "email", "phone", "birthDate", "gender", "address", "occupation", "emergencyContactName", "emergencyContactNumber"];
+    const step2Fields = ["primaryPhysician", "insuranceProvider", "insurancePolicyNumber", "allergies", "currentMedication", "familyMedicalHistory", "pastMedicalHistory"];
+    
+    if (step1Fields.includes(firstErrorField)) setStep(1);
+    else if (step2Fields.includes(firstErrorField)) setStep(2);
+    else setStep(3);
   };
 
   const personalInfo = (
@@ -411,7 +423,7 @@ const RegisterForm = ({ user }: { user: User }) => {
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit(onSubmit, onError)}
         className="flex-1 space-y-12 pb-20"
       >
         <section className="space-y-4">
