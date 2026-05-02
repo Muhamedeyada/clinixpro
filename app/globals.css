@@ -433,7 +433,24 @@
   align-items: center !important;
 }
 
-/* =====  REACT PHONE NUMBER INPUT OVERRIDES */
+/* ===== GLOBAL CURSOR POINTERS */
+button,
+[role="button"],
+[role="radio"],
+[role="checkbox"],
+[role="combobox"],
+[role="menuitem"],
+label,
+input[type="checkbox"],
+input[type="radio"],
+.cursor-pointer,
+.shad-select-trigger,
+.shad-combobox-trigger,
+.react-datepicker__input-container input {
+  cursor: pointer !important;
+}
+
+/* ===== REACT PHONE NUMBER INPUT OVERRIDES */
 .PhoneInputInput {
   outline: none;
   margin-left: 4px;
