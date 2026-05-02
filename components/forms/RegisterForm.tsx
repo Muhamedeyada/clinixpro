@@ -71,19 +71,10 @@ const RegisterForm = ({ user }: { user: User }) => {
   const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
     setIsLoading(true);
 
-    let formData;
-    if (
-      values.identificationDocument &&
-      values.identificationDocument?.length > 0
-    ) {
-      const blobFile = new Blob([values.identificationDocument[0]], {
-        type: values.identificationDocument[0].type,
-      });
-
-      formData = new FormData();
-      formData.append("blobFile", blobFile);
-      formData.append("fileName", values.identificationDocument[0].name);
-    }
+    const identificationFile =
+      values.identificationDocument && values.identificationDocument.length > 0
+        ? values.identificationDocument[0]
+        : undefined;
 
     try {
       const patient = {
@@ -92,7 +83,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         email: values.email,
         phone: values.phone,
         birthDate: new Date(values.birthDate),
-        gender: values.gender.toLowerCase() as Gender,
+        gender: values.gender as Gender,
         address: values.address,
         occupation: values.occupation,
         emergencyContactName: values.emergencyContactName,
@@ -103,12 +94,10 @@ const RegisterForm = ({ user }: { user: User }) => {
         allergies: values.allergies,
         currentMedication: values.currentMedication,
         familyMedicalHistory: values.familyMedicalHistory,
-        postMedicalHistory: values.pastMedicalHistory,
+        pastMedicalHistory: values.pastMedicalHistory,
         identificationType: values.identificationType,
         identificationNumber: values.identificationNumber,
-        identificationDocument: (values.identificationDocument && values.identificationDocument.length > 0)
-          ? formData
-          : undefined,
+        identificationDocument: identificationFile,
         privacyConsent: values.privacyConsent,
         treatmentConsent: values.treatmentConsent,
         disclosureConsent: values.disclosureConsent,
@@ -118,6 +107,8 @@ const RegisterForm = ({ user }: { user: User }) => {
 
       if (newPatient && !newPatient.error) {
         router.push(`/patients/${user.$id}/new-appointment`);
+      } else {
+        alert(newPatient?.error || "Registration failed. Please try again.");
       }
     } catch (error) {
       console.log("Registration Error:", error);
@@ -131,9 +122,18 @@ const RegisterForm = ({ user }: { user: User }) => {
     if (!isMobile) return;
     const firstErrorField = Object.keys(errors)[0];
     const step1Fields = [
-      "name", "email", "phone", "birthDate", "gender", "address", 
-      "occupation", "emergencyContactName", "emergencyContactNumber",
-      "primaryPhysician", "insuranceProvider", "insurancePolicyNumber"
+      "name",
+      "email",
+      "phone",
+      "birthDate",
+      "gender",
+      "address",
+      "occupation",
+      "emergencyContactName",
+      "emergencyContactNumber",
+      "primaryPhysician",
+      "insuranceProvider",
+      "insurancePolicyNumber",
     ];
     if (step1Fields.includes(firstErrorField)) setStep(1);
     else setStep(2);
@@ -465,9 +465,18 @@ const RegisterForm = ({ user }: { user: User }) => {
                   type="button"
                   onClick={async () => {
                     const fields = [
-                      "name", "email", "phone", "birthDate", "gender", "address", 
-                      "occupation", "emergencyContactName", "emergencyContactNumber",
-                      "primaryPhysician", "insuranceProvider", "insurancePolicyNumber"
+                      "name",
+                      "email",
+                      "phone",
+                      "birthDate",
+                      "gender",
+                      "address",
+                      "occupation",
+                      "emergencyContactName",
+                      "emergencyContactNumber",
+                      "primaryPhysician",
+                      "insuranceProvider",
+                      "insurancePolicyNumber",
                     ];
                     const isValid = await form.trigger(fields as any);
                     if (isValid) setStep(2);
@@ -490,4 +499,3 @@ const RegisterForm = ({ user }: { user: User }) => {
 };
 
 export default RegisterForm;
-
