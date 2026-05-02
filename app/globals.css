@@ -4,15 +4,16 @@
 /* ========================================== CSS CUSTOM PROPERTIES */
 
 :root {
-  /* Light mode: dark scale inverted to light equivalents */
+  /* Premium Light Mode Palette */
   --dark-200: #ffffff;
   --dark-300: #f8fafc;
   --dark-400: #ffffff;
-  --dark-500: #d1d5db;
-  --dark-600: #6b7280;
-  --dark-700: #374151;
-  --foreground: #111827;
-  --table-header-bg: #f3f4f6;
+  --dark-500: #e2e8f0;
+  --dark-600: #64748b;
+  --dark-700: #334155;
+  --foreground: #0f172a;
+  --muted-foreground: #64748b;
+  --table-header-bg: #f1f5f9;
 }
 
 .dark {
@@ -24,6 +25,7 @@
   --dark-600: #76828D;
   --dark-700: #ABB8C4;
   --foreground: #E8E9E9;
+  --muted-foreground: #76828D;
   --table-header-bg: #0D0F10;
 }
 
@@ -134,6 +136,7 @@
   font-size: 24px;
   line-height: 28px;
   font-weight: 700;
+  color: var(--foreground);
 
   @media (min-width: 768px) {
     font-size: 32px;
@@ -295,7 +298,7 @@
   font-size: 14px;
   line-height: 18px;
   font-weight: 500;
-  color: var(--dark-700);
+  color: var(--foreground);
 }
 
 .shad-input,

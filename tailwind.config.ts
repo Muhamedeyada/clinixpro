@@ -45,6 +45,7 @@ const config = {
           600: "var(--dark-600)",
           700: "var(--dark-700)",
         },
+        "muted-foreground": "var(--muted-foreground)",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],

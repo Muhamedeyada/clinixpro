@@ -31,7 +31,7 @@ export const StatCard = ({ count = 0, icon, type, label }: StatCardProps) => {
           alt="appointments"
           className="size-8 w-fit"
         />
-        <h2 className="text-32-bold text-white">{count}</h2>
+        <h2 className="text-32-bold text-foreground dark:text-white">{count}</h2>
       </div>
 
       <p className="text-14-regular">{displayLabel}</p>
