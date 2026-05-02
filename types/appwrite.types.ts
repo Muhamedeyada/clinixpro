@@ -5,7 +5,7 @@ export interface Patient extends Models.Document {
   name: string;
   email: string;
   phone: string;
-  birthDate: Date;
+  birthDate: Date | string;
   gender: Gender;
   address: string;
   occupation: string;
@@ -17,7 +17,7 @@ export interface Patient extends Models.Document {
   allergies: string | undefined;
   currentMedication: string | undefined;
   familyMedicalHistory: string | undefined;
-  pastMedicalHistory: string | undefined;
+  postMedicalHistory: string | undefined;
   identificationType: string | undefined;
   identificationNumber: string | undefined;
   identificationDocument: any | undefined;

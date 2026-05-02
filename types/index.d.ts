@@ -21,7 +21,7 @@ declare interface User extends CreateUserParams {
 
 declare interface RegisterUserParams extends CreateUserParams {
   userId: string;
-  birthDate: Date;
+  birthDate: Date | string;
   gender: Gender;
   address: string;
   occupation: string;
@@ -33,7 +33,7 @@ declare interface RegisterUserParams extends CreateUserParams {
   allergies: string | undefined;
   currentMedication: string | undefined;
   familyMedicalHistory: string | undefined;
-  pastMedicalHistory: string | undefined;
+  postMedicalHistory: string | undefined;
   identificationType: string | undefined;
   identificationNumber: string | undefined;
   identificationDocument: any | undefined;

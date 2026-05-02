@@ -91,6 +91,7 @@ export const registerPatient = async ({
 
     return parseStringify(newPatient);
   } catch (error: any) {
+    console.error("An error occurred while registering a new patient:", error);
     return { error: error.message || "An unknown error occurred" };
   }
 };
