@@ -134,8 +134,7 @@
   },
   "gender": {
     "Male": "ذكر",
-    "Female": "أنثى",
-    "Other": "آخر"
+    "Female": "أنثى"
   },
   "identificationTypes": {
     "birthCertificate": "شهادة الميلاد",
