@@ -248,6 +248,7 @@
 
 /* =====  REACT PHONE NUMBER INPUT OVERRIDES */
 @utility input-phone {
+  direction: ltr !important;
   margin-top: 0.5rem;
   height: 2.75rem;
   border-radius: 0.375rem;
@@ -565,14 +566,4 @@ input[type="radio"],
   width: 100%;
 }
 
-/* Flip phone input country flag to the right in RTL */
-[dir="rtl"] .PhoneInputCountry {
-  order: 2;
-  margin-inline-start: 8px;
-  margin-inline-end: 0;
-}
 
-[dir="rtl"] .PhoneInputInput {
-  margin-left: 0;
-  margin-right: 4px;
-}
