@@ -2,6 +2,7 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 
 import { AppointmentForm } from "@/components/forms/AppointmentForm";
+import { Copyright } from "@/components/Copyright";
 import { getPatient } from "@/lib/actions/patient.actions";
 
 const Appointment = async ({ params }: SearchParamProps) => {
@@ -28,7 +29,7 @@ const Appointment = async ({ params }: SearchParamProps) => {
             type="create"
           />
 
-          <p className="copyright mt-10 py-12">© 2026 ClinixPro</p>
+          <Copyright className="copyright mt-10 py-12" />
         </div>
       </section>
 

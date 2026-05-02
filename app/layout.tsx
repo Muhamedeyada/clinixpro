@@ -4,6 +4,9 @@ import { Plus_Jakarta_Sans as FontSans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 
 import { cn } from "@/lib/utils";
+import { IntlProvider } from "@/components/IntlProvider";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageToggle } from "@/components/LanguageToggle";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -34,7 +37,13 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
+          <IntlProvider>
+            <div className="fixed top-3 right-3 z-50 flex items-center gap-1">
+              <ThemeToggle />
+              <LanguageToggle />
+            </div>
+            {children}
+          </IntlProvider>
         </ThemeProvider>
       </body>
     </html>

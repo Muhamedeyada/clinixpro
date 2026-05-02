@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -31,6 +32,14 @@ export const AppointmentModal = ({
   description: string;
 }) => {
   const [open, setOpen] = useState(false);
+  const t = useTranslations("appointmentModal");
+
+  const title =
+    type === "schedule" ? t("scheduleTitle") : t("cancelTitle");
+  const description =
+    type === "schedule" ? t("scheduleDescription") : t("cancelDescription");
+  const triggerText =
+    type === "schedule" ? t("scheduleTrigger") : t("cancelTrigger");
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -39,15 +48,13 @@ export const AppointmentModal = ({
           variant="ghost"
           className={`capitalize ${type === "schedule" && "text-green-500"}`}
         >
-          {type}
+          {triggerText}
         </Button>
       </DialogTrigger>
-      <DialogContent className="shad-dialog sm:max-w-md">
+      <DialogContent className="shad-dialog w-full max-w-[95vw] sm:max-w-md">
         <DialogHeader className="mb-4 space-y-3">
-          <DialogTitle className="capitalize">{type} Appointment</DialogTitle>
-          <DialogDescription>
-            Please fill in the following details to {type} appointment
-          </DialogDescription>
+          <DialogTitle className="capitalize">{title}</DialogTitle>
+          <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
 
         <AppointmentForm

@@ -105,15 +105,25 @@
 }
 
 @utility header {
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 24px;
+  line-height: 28px;
   font-weight: 700;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+    line-height: 36px;
+  }
 }
 
 @utility sub-header {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 22px;
   font-weight: 700;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
 
 @utility container {
@@ -164,7 +174,7 @@
 }
 
 @utility checkbox-label {
-  @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
+  @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none py-2;
 }
 
 /* ==== File Upload */
@@ -173,6 +183,7 @@
   font-size: 12px;
   line-height: 16px;
   font-weight: 400;
+  min-height: 120px;
 }
 
 @utility file-upload_label {
@@ -190,7 +201,7 @@
 
 /* Data Table */
 @utility data-table {
-  @apply z-10 w-full overflow-hidden rounded-lg border border-dark-400 shadow-lg;
+  @apply z-10 w-full rounded-lg border border-dark-400 shadow-lg;
 }
 
 @utility table-actions {
@@ -346,16 +357,25 @@
 }
 
 .shad-otp-slot {
-  font-size: 36px;
-  line-height: 40px;
+  font-size: 24px;
+  line-height: 28px;
   font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid #363A3D;
   border-radius: 0.5rem;
-  width: 4rem;
-  height: 4rem;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+@media (min-width: 640px) {
+  .shad-otp-slot {
+    width: 4rem;
+    height: 4rem;
+    font-size: 36px;
+    line-height: 40px;
+  }
 }
 
 .shad-alert-dialog {
@@ -365,6 +385,7 @@
   gap: 1.25rem;
   display: flex;
   flex-direction: column;
+  width: min(90vw, 28rem);
 }
 
 .shad-sheet-content button:focus,

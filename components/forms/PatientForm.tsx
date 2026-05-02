@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslations } from "next-intl";
 import { z } from "zod";
 
 import { Form } from "@/components/ui/form";
@@ -17,6 +18,7 @@ import CustomFormField, { FormFieldType } from "../CustomFormField";
 export const PatientForm = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const t = useTranslations("patientForm");
 
   const form = useForm<z.infer<typeof UserFormValidation>>({
     resolver: zodResolver(UserFormValidation),
@@ -53,16 +55,16 @@ export const PatientForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
         <section className="mb-12 space-y-4">
-          <h1 className="header">Hi there 👋</h1>
-          <p className="text-dark-700">Get started with appointments.</p>
+          <h1 className="header">{t("title")}</h1>
+          <p className="text-dark-700">{t("subtitle")}</p>
         </section>
 
         <CustomFormField
           fieldType={FormFieldType.INPUT}
           control={form.control}
           name="name"
-          label="Full name"
-          placeholder="Mohamed Ahmed"
+          label={t("nameLabel")}
+          placeholder={t("namePlaceholder")}
           iconSrc="/assets/icons/user.svg"
           iconAlt="user"
         />
@@ -71,8 +73,8 @@ export const PatientForm = () => {
           fieldType={FormFieldType.INPUT}
           control={form.control}
           name="email"
-          label="Email"
-          placeholder="mohamed@gmail.com"
+          label={t("emailLabel")}
+          placeholder={t("emailPlaceholder")}
           iconSrc="/assets/icons/email.svg"
           iconAlt="email"
         />
@@ -81,11 +83,11 @@ export const PatientForm = () => {
           fieldType={FormFieldType.PHONE_INPUT}
           control={form.control}
           name="phone"
-          label="Phone number"
-          placeholder="+20 123 456 7890"
+          label={t("phoneLabel")}
+          placeholder={t("phonePlaceholder")}
         />
 
-        <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
+        <SubmitButton isLoading={isLoading}>{t("submit")}</SubmitButton>
       </form>
     </Form>
   );

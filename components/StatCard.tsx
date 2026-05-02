@@ -1,14 +1,20 @@
+"use client";
+
 import clsx from "clsx";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type StatCardProps = {
   type: "appointments" | "pending" | "cancelled";
   count: number;
-  label: string;
   icon: string;
+  label?: string;
 };
 
-export const StatCard = ({ count = 0, label, icon, type }: StatCardProps) => {
+export const StatCard = ({ count = 0, icon, type, label }: StatCardProps) => {
+  const t = useTranslations("statCard");
+  const displayLabel = label ?? t(type);
+
   return (
     <div
       className={clsx("stat-card", {
@@ -28,7 +34,7 @@ export const StatCard = ({ count = 0, label, icon, type }: StatCardProps) => {
         <h2 className="text-32-bold text-white">{count}</h2>
       </div>
 
-      <p className="text-14-regular">{label}</p>
+      <p className="text-14-regular">{displayLabel}</p>
     </div>
   );
 };

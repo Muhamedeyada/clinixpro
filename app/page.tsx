@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import { PatientForm } from "@/components/forms/PatientForm";
 import { PasskeyModal } from "@/components/PasskeyModal";
+import { HomeFooter } from "@/components/HomeFooter";
 
 const Home = async ({ searchParams }: SearchParamProps) => {
   const { admin } = await searchParams;
@@ -24,14 +24,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
 
           <PatientForm />
 
-          <div className="text-14-regular mt-20 flex justify-between">
-            <p className="justify-items-end text-dark-600 xl:text-left">
-              © 2024 ClinixPro
-            </p>
-            <Link href="/?admin=true" className="text-green-500">
-              Admin
-            </Link>
-          </div>
+          <HomeFooter />
         </div>
       </section>
 
@@ -40,7 +33,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
         height={1000}
         width={1000}
         alt="patient"
-        className="side-img max-w-[50%]"
+        className="hidden lg:block h-full max-w-[50%] object-cover"
       />
     </div>
   );

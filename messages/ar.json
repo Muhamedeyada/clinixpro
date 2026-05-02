@@ -1,0 +1,153 @@
+{
+  "patientForm": {
+    "title": "أهلاً بك 👋",
+    "subtitle": "ابدأ بتحديد موعدك الأول.",
+    "nameLabel": "الاسم الكامل",
+    "namePlaceholder": "محمد أحمد",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "mohamed@gmail.com",
+    "phoneLabel": "رقم الهاتف",
+    "phonePlaceholder": "+20 123 456 7890",
+    "submit": "ابدأ الآن"
+  },
+  "registerForm": {
+    "title": "مرحباً 👋",
+    "subtitle": "دعنا نتعرف عليك أكثر.",
+    "personalInfo": "المعلومات الشخصية",
+    "medicalInfo": "المعلومات الطبية",
+    "identificationSection": "الهوية والتحقق",
+    "consentSection": "الموافقة والخصوصية",
+    "submit": "إرسال ومتابعة",
+    "emailLabel": "عنوان البريد الإلكتروني",
+    "phoneLabel": "رقم الهاتف",
+    "phonePlaceholder": "+20 123 456 7890",
+    "emailPlaceholder": "mohamed@gmail.com",
+    "namePlaceholder": "محمد أحمد",
+    "birthDateLabel": "تاريخ الميلاد",
+    "genderLabel": "الجنس",
+    "addressLabel": "العنوان",
+    "addressPlaceholder": "شارع عباس العقاد 15، مدينة نصر، القاهرة",
+    "occupationLabel": "المهنة",
+    "occupationPlaceholder": "مهندس برمجيات",
+    "emergencyNameLabel": "اسم جهة الاتصال في الطوارئ",
+    "emergencyNamePlaceholder": "اسم ولي الأمر",
+    "emergencyPhoneLabel": "رقم جهة الاتصال في الطوارئ",
+    "physicianLabel": "الطبيب المعالج الرئيسي",
+    "physicianPlaceholder": "اختر طبيباً",
+    "insuranceProviderLabel": "مزود التأمين الصحي",
+    "insuranceProviderPlaceholder": "BlueCross BlueShield",
+    "insurancePolicyLabel": "رقم وثيقة التأمين",
+    "insurancePolicyPlaceholder": "ABC123456789",
+    "allergiesLabel": "الحساسية (إن وجدت)",
+    "allergiesPlaceholder": "الفول السوداني، البنسلين، حبوب اللقاح",
+    "medicationsLabel": "الأدوية الحالية",
+    "medicationsPlaceholder": "إيبوبروفين 200 ملغ، ليفوثيروكسين 50 ميكروغرام",
+    "familyHistoryLabel": "التاريخ الطبي للعائلة (إن وجد)",
+    "familyHistoryPlaceholder": "الأم مصابة بسرطان الدماغ، الأب مصاب بارتفاع ضغط الدم",
+    "pastHistoryLabel": "التاريخ الطبي السابق",
+    "pastHistoryPlaceholder": "استئصال الزائدة الدودية عام 2015، تشخيص الربو في مرحلة الطفولة",
+    "identificationTypeLabel": "نوع الهوية",
+    "identificationTypePlaceholder": "اختر نوع الهوية",
+    "identificationNumberLabel": "رقم الهوية",
+    "identificationNumberPlaceholder": "123456789",
+    "identificationDocLabel": "نسخة ممسوحة ضوئياً من وثيقة الهوية",
+    "treatmentConsentLabel": "أوافق على تلقي العلاج لحالتي الصحية.",
+    "disclosureConsentLabel": "أوافق على استخدام والإفصاح عن معلوماتي الصحية لأغراض العلاج.",
+    "privacyConsentLabel": "أقر بأنني راجعت سياسة الخصوصية وأوافق عليها"
+  },
+  "appointmentForm": {
+    "createTitle": "موعد جديد",
+    "createSubtitle": "احجز موعداً جديداً في 10 ثوانٍ.",
+    "doctorLabel": "الطبيب",
+    "doctorPlaceholder": "اختر طبيباً",
+    "dateLabel": "تاريخ الموعد المتوقع",
+    "reasonLabel": "سبب الموعد",
+    "reasonPlaceholder": "الفحص الدوري الشهري",
+    "notesLabel": "ملاحظات",
+    "notesPlaceholder": "يُفضَّل مواعيد بعد الظهر إن أمكن",
+    "cancellationLabel": "سبب الإلغاء",
+    "cancellationPlaceholder": "اجتماع عاجل",
+    "submitButton": "إرسال الموعد",
+    "scheduleButton": "تأكيد الموعد",
+    "cancelButton": "إلغاء الموعد"
+  },
+  "passkey": {
+    "title": "التحقق من صلاحيات الإدارة",
+    "description": "للوصول إلى لوحة الإدارة، يرجى إدخال رمز المرور.",
+    "button": "إدخال رمز المرور",
+    "error": "رمز المرور غير صحيح. يرجى المحاولة مجدداً."
+  },
+  "statusBadge": {
+    "scheduled": "مجدول",
+    "pending": "معلق",
+    "cancelled": "ملغى"
+  },
+  "statCard": {
+    "appointments": "المواعيد المجدولة",
+    "pending": "المواعيد المعلقة",
+    "cancelled": "المواعيد الملغاة"
+  },
+  "adminDashboard": {
+    "title": "لوحة إدارة العيادة",
+    "welcome": "أهلاً 👋",
+    "description": "ابدأ يومك بإدارة المواعيد الجديدة"
+  },
+  "appointmentModal": {
+    "scheduleTitle": "تأكيد الموعد",
+    "cancelTitle": "إلغاء الموعد",
+    "scheduleDescription": "يرجى تأكيد التفاصيل التالية لجدولة الموعد.",
+    "cancelDescription": "هل أنت متأكد من رغبتك في إلغاء الموعد؟",
+    "scheduleTrigger": "تأكيد",
+    "cancelTrigger": "إلغاء"
+  },
+  "columns": {
+    "patient": "المريض",
+    "status": "الحالة",
+    "appointment": "الموعد",
+    "doctor": "الطبيب",
+    "actions": "الإجراءات"
+  },
+  "submitButton": {
+    "loading": "جارٍ التحميل..."
+  },
+  "fileUploader": {
+    "clickToUpload": "انقر للرفع",
+    "dragAndDrop": "أو اسحب وأفلت",
+    "formats": "SVG، PNG، JPG أو GIF (الحد الأقصى 800×400 بكسل)"
+  },
+  "dataTable": {
+    "noResults": "لا توجد نتائج."
+  },
+  "loading": {
+    "text": "جارٍ التحميل..."
+  },
+  "common": {
+    "copyright": "© 2026 ClinixPro",
+    "admin": "الإدارة"
+  },
+  "success": {
+    "heading": "تم إرسال طلب موعدك",
+    "headingHighlight": "بنجاح!",
+    "message": "سنتواصل معك قريباً للتأكيد.",
+    "detailsHeading": "تفاصيل الموعد المطلوب:",
+    "newAppointment": "موعد جديد"
+  },
+  "gender": {
+    "Male": "ذكر",
+    "Female": "أنثى",
+    "Other": "آخر"
+  },
+  "identificationTypes": {
+    "birthCertificate": "شهادة الميلاد",
+    "driversLicense": "رخصة القيادة",
+    "medicalInsurance": "بطاقة/وثيقة التأمين الطبي",
+    "militaryId": "بطاقة الهوية العسكرية",
+    "nationalId": "بطاقة الهوية الوطنية",
+    "passport": "جواز السفر",
+    "residentAlien": "بطاقة الإقامة (الكارت الأخضر)",
+    "socialSecurity": "بطاقة الضمان الاجتماعي",
+    "stateId": "بطاقة هوية الولاية",
+    "studentId": "بطاقة الطالب",
+    "voterId": "بطاقة الناخب"
+  }
+}

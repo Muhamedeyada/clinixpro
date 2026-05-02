@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -31,6 +32,8 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  const t = useTranslations("dataTable");
+
   const encryptedKey =
     typeof window !== "undefined"
       ? window.localStorage.getItem("accessKey")
@@ -53,6 +56,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="data-table">
+      <div className="overflow-x-auto">
       <Table className="shad-table">
         <TableHeader className=" bg-dark-200">
           {table.getHeaderGroups().map((headerGroup) => (
@@ -90,12 +94,13 @@ export function DataTable<TData, TValue>({
           ) : (
             <TableRow>
               <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
+                {t("noResults")}
               </TableCell>
             </TableRow>
           )}
         </TableBody>
       </Table>
+      </div>
       <div className="table-actions">
         <Button
           variant="outline"
@@ -122,7 +127,7 @@ export function DataTable<TData, TValue>({
             src="/assets/icons/arrow.svg"
             width={24}
             height={24}
-            alt="arrow "
+            alt="arrow"
             className="rotate-180"
           />
         </Button>

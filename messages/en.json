@@ -1,0 +1,153 @@
+{
+  "patientForm": {
+    "title": "Hi there 👋",
+    "subtitle": "Get started with appointments.",
+    "nameLabel": "Full name",
+    "namePlaceholder": "Mohamed Ahmed",
+    "emailLabel": "Email",
+    "emailPlaceholder": "mohamed@gmail.com",
+    "phoneLabel": "Phone number",
+    "phonePlaceholder": "+20 123 456 7890",
+    "submit": "Get Started"
+  },
+  "registerForm": {
+    "title": "Welcome 👋",
+    "subtitle": "Let us know more about yourself.",
+    "personalInfo": "Personal Information",
+    "medicalInfo": "Medical Information",
+    "identificationSection": "Identification and Verification",
+    "consentSection": "Consent and Privacy",
+    "submit": "Submit and Continue",
+    "emailLabel": "Email address",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "+20 123 456 7890",
+    "emailPlaceholder": "mohamed@gmail.com",
+    "namePlaceholder": "Mohamed Ahmed",
+    "birthDateLabel": "Date of birth",
+    "genderLabel": "Gender",
+    "addressLabel": "Address",
+    "addressPlaceholder": "15 Abbas El Akkad St, Nasr City, Cairo",
+    "occupationLabel": "Occupation",
+    "occupationPlaceholder": "Software Engineer",
+    "emergencyNameLabel": "Emergency contact name",
+    "emergencyNamePlaceholder": "Guardian's name",
+    "emergencyPhoneLabel": "Emergency contact number",
+    "physicianLabel": "Primary care physician",
+    "physicianPlaceholder": "Select a physician",
+    "insuranceProviderLabel": "Insurance provider",
+    "insuranceProviderPlaceholder": "BlueCross BlueShield",
+    "insurancePolicyLabel": "Insurance policy number",
+    "insurancePolicyPlaceholder": "ABC123456789",
+    "allergiesLabel": "Allergies (if any)",
+    "allergiesPlaceholder": "Peanuts, Penicillin, Pollen",
+    "medicationsLabel": "Current medications",
+    "medicationsPlaceholder": "Ibuprofen 200mg, Levothyroxine 50mcg",
+    "familyHistoryLabel": "Family medical history (if relevant)",
+    "familyHistoryPlaceholder": "Mother had brain cancer, Father has hypertension",
+    "pastHistoryLabel": "Past medical history",
+    "pastHistoryPlaceholder": "Appendectomy in 2015, Asthma diagnosis in childhood",
+    "identificationTypeLabel": "Identification Type",
+    "identificationTypePlaceholder": "Select identification type",
+    "identificationNumberLabel": "Identification Number",
+    "identificationNumberPlaceholder": "123456789",
+    "identificationDocLabel": "Scanned Copy of Identification Document",
+    "treatmentConsentLabel": "I consent to receive treatment for my health condition.",
+    "disclosureConsentLabel": "I consent to the use and disclosure of my health information for treatment purposes.",
+    "privacyConsentLabel": "I acknowledge that I have reviewed and agree to the privacy policy"
+  },
+  "appointmentForm": {
+    "createTitle": "New Appointment",
+    "createSubtitle": "Request a new appointment in 10 seconds.",
+    "doctorLabel": "Doctor",
+    "doctorPlaceholder": "Select a doctor",
+    "dateLabel": "Expected appointment date",
+    "reasonLabel": "Appointment reason",
+    "reasonPlaceholder": "Annual monthly check-up",
+    "notesLabel": "Comments/notes",
+    "notesPlaceholder": "Prefer afternoon appointments, if possible",
+    "cancellationLabel": "Reason for cancellation",
+    "cancellationPlaceholder": "Urgent meeting came up",
+    "submitButton": "Submit Appointment",
+    "scheduleButton": "Schedule Appointment",
+    "cancelButton": "Cancel Appointment"
+  },
+  "passkey": {
+    "title": "Admin Access Verification",
+    "description": "To access the admin page, please enter the passkey.",
+    "button": "Enter Admin Passkey",
+    "error": "Invalid passkey. Please try again."
+  },
+  "statusBadge": {
+    "scheduled": "Scheduled",
+    "pending": "Pending",
+    "cancelled": "Cancelled"
+  },
+  "statCard": {
+    "appointments": "Scheduled appointments",
+    "pending": "Pending appointments",
+    "cancelled": "Cancelled appointments"
+  },
+  "adminDashboard": {
+    "title": "Admin Dashboard",
+    "welcome": "Welcome 👋",
+    "description": "Start the day with managing new appointments"
+  },
+  "appointmentModal": {
+    "scheduleTitle": "Schedule Appointment",
+    "cancelTitle": "Cancel Appointment",
+    "scheduleDescription": "Please confirm the following details to schedule.",
+    "cancelDescription": "Are you sure you want to cancel your appointment?",
+    "scheduleTrigger": "Schedule",
+    "cancelTrigger": "Cancel"
+  },
+  "columns": {
+    "patient": "Patient",
+    "status": "Status",
+    "appointment": "Appointment",
+    "doctor": "Doctor",
+    "actions": "Actions"
+  },
+  "submitButton": {
+    "loading": "Loading..."
+  },
+  "fileUploader": {
+    "clickToUpload": "Click to upload",
+    "dragAndDrop": "or drag and drop",
+    "formats": "SVG, PNG, JPG or GIF (max. 800x400px)"
+  },
+  "dataTable": {
+    "noResults": "No results."
+  },
+  "loading": {
+    "text": "Loading..."
+  },
+  "common": {
+    "copyright": "© 2026 ClinixPro",
+    "admin": "Admin"
+  },
+  "success": {
+    "heading": "Your appointment request has been",
+    "headingHighlight": "successfully submitted!",
+    "message": "We'll be in touch shortly to confirm.",
+    "detailsHeading": "Requested appointment details:",
+    "newAppointment": "New Appointment"
+  },
+  "gender": {
+    "Male": "Male",
+    "Female": "Female",
+    "Other": "Other"
+  },
+  "identificationTypes": {
+    "birthCertificate": "Birth Certificate",
+    "driversLicense": "Driver's License",
+    "medicalInsurance": "Medical Insurance Card/Policy",
+    "militaryId": "Military ID Card",
+    "nationalId": "National Identity Card",
+    "passport": "Passport",
+    "residentAlien": "Resident Alien Card (Green Card)",
+    "socialSecurity": "Social Security Card",
+    "stateId": "State ID Card",
+    "studentId": "Student ID Card",
+    "voterId": "Voter ID Card"
+  }
+}

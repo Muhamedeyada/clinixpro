@@ -59,7 +59,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
               height={24}
               width={24}
               alt={props.iconAlt || "icon"}
-              className="ml-2"
+              className="ms-2"
             />
           )}
           <FormControl>
@@ -99,7 +99,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
     case FormFieldType.CHECKBOX:
       return (
         <FormControl>
-          <div className="flex items-center gap-4">
+          <div className="flex min-h-[44px] items-center gap-4 py-1">
             <Checkbox
               id={props.name}
               checked={field.value}
@@ -119,7 +119,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
             height={24}
             width={24}
             alt="user"
-            className="ml-2"
+            className="ms-2"
           />
           <FormControl>
             <ReactDatePicker

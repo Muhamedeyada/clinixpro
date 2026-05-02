@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 
@@ -9,6 +12,8 @@ interface ButtonProps {
 }
 
 const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
+  const t = useTranslations("submitButton");
+
   return (
     <Button
       type="submit"
@@ -24,7 +29,7 @@ const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
             height={24}
             className="animate-spin"
           />
-          Loading...
+          {t("loading")}
         </div>
       ) : (
         children

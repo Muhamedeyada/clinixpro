@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslations } from "next-intl";
 import { z } from "zod";
 
 import { SelectItem } from "@/components/ui/select";
@@ -40,6 +41,7 @@ export const AppointmentForm = ({
 }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const t = useTranslations("appointmentForm");
 
   const AppointmentFormValidation = getAppointmentSchema(type);
 
@@ -118,16 +120,16 @@ export const AppointmentForm = ({
     setIsLoading(false);
   };
 
-  let buttonLabel;
+  let buttonLabel: string;
   switch (type) {
     case "cancel":
-      buttonLabel = "Cancel Appointment";
+      buttonLabel = t("cancelButton");
       break;
     case "schedule":
-      buttonLabel = "Schedule Appointment";
+      buttonLabel = t("scheduleButton");
       break;
     default:
-      buttonLabel = "Submit Apppointment";
+      buttonLabel = t("submitButton");
   }
 
   return (
@@ -135,10 +137,8 @@ export const AppointmentForm = ({
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
         {type === "create" && (
           <section className="mb-12 space-y-4">
-            <h1 className="header">New Appointment</h1>
-            <p className="text-dark-700">
-              Request a new appointment in 10 seconds.
-            </p>
+            <h1 className="header">{t("createTitle")}</h1>
+            <p className="text-dark-700">{t("createSubtitle")}</p>
           </section>
         )}
 
@@ -148,8 +148,8 @@ export const AppointmentForm = ({
               fieldType={FormFieldType.SELECT}
               control={form.control}
               name="primaryPhysician"
-              label="Doctor"
-              placeholder="Select a doctor"
+              label={t("doctorLabel")}
+              placeholder={t("doctorPlaceholder")}
             >
               {Doctors.map((doctor, i) => (
                 <SelectItem key={doctor.name + i} value={doctor.name}>
@@ -171,20 +171,20 @@ export const AppointmentForm = ({
               fieldType={FormFieldType.DATE_PICKER}
               control={form.control}
               name="schedule"
-              label="Expected appointment date"
+              label={t("dateLabel")}
               showTimeSelect
               dateFormat="MM/dd/yyyy  -  h:mm aa"
             />
 
             <div
-              className={`flex flex-col gap-6  ${type === "create" && "xl:flex-row"}`}
+              className={`flex flex-col gap-6  ${type === "create" && "md:flex-row"}`}
             >
               <CustomFormField
                 fieldType={FormFieldType.TEXTAREA}
                 control={form.control}
                 name="reason"
-                label="Appointment reason"
-                placeholder="Annual montly check-up"
+                label={t("reasonLabel")}
+                placeholder={t("reasonPlaceholder")}
                 disabled={type === "schedule"}
               />
 
@@ -192,8 +192,8 @@ export const AppointmentForm = ({
                 fieldType={FormFieldType.TEXTAREA}
                 control={form.control}
                 name="note"
-                label="Comments/notes"
-                placeholder="Prefer afternoon appointments, if possible"
+                label={t("notesLabel")}
+                placeholder={t("notesPlaceholder")}
                 disabled={type === "schedule"}
               />
             </div>
@@ -205,8 +205,8 @@ export const AppointmentForm = ({
             fieldType={FormFieldType.TEXTAREA}
             control={form.control}
             name="cancellationReason"
-            label="Reason for cancellation"
-            placeholder="Urgent meeting came up"
+            label={t("cancellationLabel")}
+            placeholder={t("cancellationPlaceholder")}
           />
         )}
 

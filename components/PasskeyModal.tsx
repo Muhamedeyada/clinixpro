@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 import {
   AlertDialog,
@@ -26,6 +27,7 @@ export const PasskeyModal = () => {
   const [open, setOpen] = useState(false);
   const [passkey, setPasskey] = useState("");
   const [error, setError] = useState("");
+  const t = useTranslations("passkey");
 
   const encryptedKey =
     typeof window !== "undefined"
@@ -61,7 +63,7 @@ export const PasskeyModal = () => {
 
       setOpen(false);
     } else {
-      setError("Invalid passkey. Please try again.");
+      setError(t("error"));
     }
   };
 
@@ -70,7 +72,7 @@ export const PasskeyModal = () => {
       <AlertDialogContent className="shad-alert-dialog">
         <AlertDialogHeader>
           <AlertDialogTitle className="flex items-start justify-between">
-            Admin Access Verification
+            {t("title")}
             <Image
               src="/assets/icons/close.svg"
               alt="close"
@@ -80,9 +82,7 @@ export const PasskeyModal = () => {
               className="cursor-pointer"
             />
           </AlertDialogTitle>
-          <AlertDialogDescription>
-            To access the admin page, please enter the passkey.
-          </AlertDialogDescription>
+          <AlertDialogDescription>{t("description")}</AlertDialogDescription>
         </AlertDialogHeader>
         <div>
           <InputOTP
@@ -111,7 +111,7 @@ export const PasskeyModal = () => {
             onClick={(e) => validatePasskey(e)}
             className="shad-primary-btn w-full"
           >
-            Enter Admin Passkey
+            {t("button")}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

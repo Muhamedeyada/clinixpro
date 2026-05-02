@@ -1,9 +1,14 @@
+"use client";
+
 import clsx from "clsx";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 import { StatusIcon } from "@/constants";
 
 export const StatusBadge = ({ status }: { status: Status }) => {
+  const t = useTranslations("statusBadge");
+
   return (
     <div
       className={clsx("status-badge", {
@@ -20,13 +25,13 @@ export const StatusBadge = ({ status }: { status: Status }) => {
         className="h-fit w-3"
       />
       <p
-        className={clsx("text-12-semibold capitalize", {
+        className={clsx("text-12-semibold capitalize whitespace-nowrap", {
           "text-green-500": status === "scheduled",
           "text-blue-500": status === "pending",
           "text-red-500": status === "cancelled",
         })}
       >
-        {status}
+        {t(status)}
       </p>
     </div>
   );
