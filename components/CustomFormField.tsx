@@ -66,7 +66,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
             <Input
               placeholder={props.placeholder}
               {...field}
-              className="shad-input border-0"
+              className="shad-input border-0 rtl:text-right"
             />
           </FormControl>
         </div>
@@ -77,24 +77,26 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
           <Textarea
             placeholder={props.placeholder}
             {...field}
-            className="shad-textArea"
+            className="shad-textArea rtl:text-right"
             disabled={props.disabled}
           />
         </FormControl>
       );
     case FormFieldType.PHONE_INPUT:
       return (
-        <FormControl>
-          <PhoneInput
-            defaultCountry="EG"
-            placeholder={props.placeholder}
-            international
-            withCountryCallingCode
-            value={field.value as E164Number | undefined}
-            onChange={field.onChange}
-            className="input-phone"
-          />
-        </FormControl>
+        <div dir="ltr">
+          <FormControl>
+            <PhoneInput
+              defaultCountry="EG"
+              placeholder={props.placeholder}
+              international
+              withCountryCallingCode
+              value={field.value as E164Number | undefined}
+              onChange={field.onChange}
+              className="input-phone"
+            />
+          </FormControl>
+        </div>
       );
     case FormFieldType.CHECKBOX:
       return (

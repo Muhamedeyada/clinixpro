@@ -85,20 +85,22 @@ export const PasskeyModal = () => {
           <AlertDialogDescription>{t("description")}</AlertDialogDescription>
         </AlertDialogHeader>
         <div>
-          <InputOTP
-            maxLength={6}
-            value={passkey}
-            onChange={(value) => setPasskey(value)}
-          >
-            <InputOTPGroup className="shad-otp">
-              <InputOTPSlot className="shad-otp-slot" index={0} />
-              <InputOTPSlot className="shad-otp-slot" index={1} />
-              <InputOTPSlot className="shad-otp-slot" index={2} />
-              <InputOTPSlot className="shad-otp-slot" index={3} />
-              <InputOTPSlot className="shad-otp-slot" index={4} />
-              <InputOTPSlot className="shad-otp-slot" index={5} />
-            </InputOTPGroup>
-          </InputOTP>
+          <div dir="ltr" className="flex justify-center">
+            <InputOTP
+              maxLength={6}
+              value={passkey}
+              onChange={(value) => setPasskey(value)}
+            >
+              <InputOTPGroup className="shad-otp">
+                <InputOTPSlot className="shad-otp-slot" index={0} />
+                <InputOTPSlot className="shad-otp-slot" index={1} />
+                <InputOTPSlot className="shad-otp-slot" index={2} />
+                <InputOTPSlot className="shad-otp-slot" index={3} />
+                <InputOTPSlot className="shad-otp-slot" index={4} />
+                <InputOTPSlot className="shad-otp-slot" index={5} />
+              </InputOTPGroup>
+            </InputOTP>
+          </div>
 
           {error && (
             <p className="shad-error text-14-regular mt-4 flex justify-center">

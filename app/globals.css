@@ -1,6 +1,32 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
+/* ========================================== CSS CUSTOM PROPERTIES */
+
+:root {
+  /* Light mode: dark scale inverted to light equivalents */
+  --dark-200: #ffffff;
+  --dark-300: #f8fafc;
+  --dark-400: #ffffff;
+  --dark-500: #d1d5db;
+  --dark-600: #6b7280;
+  --dark-700: #374151;
+  --foreground: #111827;
+  --table-header-bg: #f3f4f6;
+}
+
+.dark {
+  /* Dark mode: original palette */
+  --dark-200: #0D0F10;
+  --dark-300: #131619;
+  --dark-400: #1A1D21;
+  --dark-500: #363A3D;
+  --dark-600: #76828D;
+  --dark-700: #ABB8C4;
+  --foreground: #E8E9E9;
+  --table-header-bg: #0D0F10;
+}
+
 /* ========================================== TAILWIND STYLES */
 
 /* ===== SCROLLBAR */
@@ -152,7 +178,7 @@
 }
 
 @utility request-details {
-  @apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-8 md:w-fit md:flex-row;
+  @apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-500 py-8 md:w-fit md:flex-row;
 }
 
 /* ===== ADMIN */
@@ -201,7 +227,7 @@
 
 /* Data Table */
 @utility data-table {
-  @apply z-10 w-full rounded-lg border border-dark-400 shadow-lg;
+  @apply z-10 w-full rounded-lg border border-dark-500 shadow-lg;
 }
 
 @utility table-actions {
@@ -227,8 +253,9 @@
   font-size: 0.875rem;
   border-width: 1px;
   border-style: solid;
-  background-color: #1A1D21;
-  border-color: #363A3D;
+  background-color: var(--dark-400);
+  border-color: var(--dark-500);
+  color: var(--foreground);
 }
 
 /* =====  REACT DATE PICKER OVERRIDES */
@@ -246,7 +273,7 @@
   outline: none;
 }
 
-/* =====  SHADCN OVERRIDES (plain CSS, no @apply !important) */
+/* =====  SHADCN OVERRIDES */
 .shad-primary-btn {
   background-color: #24AE7C;
   color: white;
@@ -258,24 +285,25 @@
 }
 
 .shad-gray-btn {
-  border: 1px solid #363A3D;
+  border: 1px solid var(--dark-500);
   cursor: pointer;
-  background-color: #1A1D21;
-  color: white;
+  background-color: var(--dark-400);
+  color: var(--foreground);
 }
 
 .shad-input-label {
   font-size: 14px;
   line-height: 18px;
   font-weight: 500;
-  color: #ABB8C4;
+  color: var(--dark-700);
 }
 
 .shad-input,
 .shad-input-icon {
-  background-color: #1A1D21;
-  border-color: #363A3D;
+  background-color: var(--dark-400);
+  border-color: var(--dark-500);
   height: 2.75rem;
+  color: var(--foreground);
 }
 .shad-input:focus-visible,
 .shad-input-icon:focus-visible {
@@ -284,8 +312,9 @@
 }
 
 .shad-textArea {
-  background-color: #1A1D21;
-  border-color: #363A3D;
+  background-color: var(--dark-400);
+  border-color: var(--dark-500);
+  color: var(--foreground);
 }
 .shad-textArea:focus-visible {
   ring: 0;
@@ -302,9 +331,10 @@
 }
 
 .shad-select-trigger {
-  background-color: #1A1D21;
-  border-color: #363A3D;
+  background-color: var(--dark-400);
+  border-color: var(--dark-500);
   height: 2.75rem;
+  color: var(--foreground);
 }
 .shad-select-trigger:focus {
   ring: 0;
@@ -312,13 +342,14 @@
 }
 
 .shad-select-content {
-  background-color: #1A1D21;
-  border-color: #363A3D;
+  background-color: var(--dark-400);
+  border-color: var(--dark-500);
+  color: var(--foreground);
 }
 
 .shad-dialog {
-  background-color: #1A1D21;
-  border-color: #363A3D;
+  background-color: var(--dark-400);
+  border-color: var(--dark-500);
 }
 
 .shad-dialog button:focus,
@@ -338,16 +369,16 @@
 }
 
 .shad-table-row-header {
-  border-bottom: 1px solid #1A1D21;
-  color: #E8E9E9;
+  border-bottom: 1px solid var(--dark-500);
+  color: var(--foreground);
 }
 .shad-table-row-header:hover {
   background: transparent;
 }
 
 .shad-table-row {
-  border-bottom: 1px solid #1A1D21;
-  color: #E8E9E9;
+  border-bottom: 1px solid var(--dark-500);
+  color: var(--foreground);
 }
 
 .shad-otp {
@@ -363,10 +394,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #363A3D;
+  border: 1px solid var(--dark-500);
   border-radius: 0.5rem;
   width: 2.25rem;
   height: 2.25rem;
+  color: var(--foreground);
+  background-color: var(--dark-400);
 }
 
 @media (min-width: 640px) {
@@ -379,13 +412,14 @@
 }
 
 .shad-alert-dialog {
-  background-color: #1A1D21;
-  border-color: #363A3D;
+  background-color: var(--dark-400);
+  border-color: var(--dark-500);
   outline: none;
   gap: 1.25rem;
   display: flex;
   flex-direction: column;
   width: min(90vw, 28rem);
+  color: var(--foreground);
 }
 
 .shad-sheet-content button:focus,
@@ -395,44 +429,56 @@
   border: none;
 }
 
-/* =====  REACT-DATEPICKER OVERRIDES */
+/* =====  REACT-DATEPICKER OVERRIDES (dark mode only) */
 .react-datepicker-wrapper.date-picker {
   display: flex;
   align-items: center;
 }
 
-.react-datepicker,
-.react-datepicker__time,
-.react-datepicker__header,
-.react-datepicker__current-month,
-.react-datepicker__day-name,
-.react-datepicker__day,
-.react-datepicker-time__header {
+.dark .react-datepicker,
+.dark .react-datepicker__time,
+.dark .react-datepicker__header,
+.dark .react-datepicker__current-month,
+.dark .react-datepicker__day-name,
+.dark .react-datepicker__day,
+.dark .react-datepicker-time__header {
   background-color: #1a1d21 !important;
   border-color: #363a3d !important;
   color: #abb8c4 !important;
 }
 
-.react-datepicker__current-month,
-.react-datepicker__day-name,
-.react-datepicker-time__header {
+.dark .react-datepicker__current-month,
+.dark .react-datepicker__day-name,
+.dark .react-datepicker-time__header {
   color: #ffffff !important;
 }
 
-.react-datepicker__triangle {
+.dark .react-datepicker__triangle {
   fill: #1a1d21 !important;
   color: #1a1d21 !important;
   stroke: #1a1d21 !important;
 }
 
-.react-datepicker__time-list-item:hover {
+.dark .react-datepicker__time-list-item:hover {
   background-color: #363a3d !important;
 }
 
-.react-datepicker__input-container input {
+.dark .react-datepicker__input-container input {
   background-color: #1a1d21 !important;
+  color: #abb8c4;
+}
+
+.react-datepicker__input-container input {
   width: 100%;
   outline: none;
+  background-color: var(--dark-400);
+  color: var(--foreground);
+}
+
+.dark .react-datepicker__day--selected {
+  background-color: #24ae7c !important;
+  color: #ffffff !important;
+  border-radius: 4px;
 }
 
 .react-datepicker__day--selected {
@@ -441,12 +487,21 @@
   border-radius: 4px;
 }
 
+.dark .react-datepicker__time-list-item--selected {
+  background-color: #24ae7c !important;
+}
+
 .react-datepicker__time-list-item--selected {
   background-color: #24ae7c !important;
 }
 
-.react-datepicker__time-container {
+.dark .react-datepicker__time-container {
   border-left: 1px solid #363a3d !important;
+}
+
+.dark .react-datepicker__time-list-item {
+  display: flex !important;
+  align-items: center !important;
 }
 
 .react-datepicker__time-list-item {
@@ -475,11 +530,46 @@ input[type="radio"],
 .PhoneInputInput {
   outline: none;
   margin-left: 4px;
-  background: #1a1d21;
+  background: var(--dark-400);
   font-size: 14px;
   font-weight: 500;
+  color: var(--foreground);
 }
 
 .PhoneInputInput::placeholder {
-  color: #1a1d21;
+  color: var(--dark-600);
+}
+
+/* ===== RTL OVERRIDES (Bug 1) */
+
+/* Phone input country selector stays LTR inside RTL layout */
+[dir="rtl"] .PhoneInputCountrySelect {
+  direction: ltr;
+}
+
+/* Number and tel inputs always flow LTR for readability */
+[dir="rtl"] input[type="number"] {
+  direction: ltr;
+  text-align: right;
+}
+
+[dir="rtl"] input[type="tel"] {
+  direction: ltr;
+}
+
+/* Date picker wrapper fills available width in RTL */
+[dir="rtl"] .react-datepicker-wrapper {
+  width: 100%;
+}
+
+/* Flip phone input country flag to the right in RTL */
+[dir="rtl"] .PhoneInputCountry {
+  order: 2;
+  margin-inline-start: 8px;
+  margin-inline-end: 0;
+}
+
+[dir="rtl"] .PhoneInputInput {
+  margin-left: 0;
+  margin-right: 4px;
 }
