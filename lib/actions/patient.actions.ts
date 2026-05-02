@@ -3,6 +3,7 @@
 import { ID, Query } from "node-appwrite";
 import { InputFile } from "node-appwrite/file";
 
+import { Patient } from "@/types/appwrite.types";
 import {
   BUCKET_ID,
   DATABASE_ID,
@@ -101,7 +102,7 @@ export const registerPatient = async ({
 // GET PATIENT
 export const getPatient = async (userId: string) => {
   try {
-    const patients = await databases.listDocuments(
+    const patients = await databases.listDocuments<Patient>(
       DATABASE_ID!,
       PATIENT_COLLECTION_ID!,
       [Query.equal("userId", userId)],
