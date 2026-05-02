@@ -47,14 +47,17 @@ export const PatientFormValidation = z.object({
     .max(50, "Insurance name must be at most 50 characters"),
   insurancePolicyNumber: z
     .string()
-    .min(2, "Policy number must be at least 2 characters")
+    .min(2, "Policy number is required")
     .max(50, "Policy number must be at most 50 characters"),
   allergies: z.string().optional(),
   currentMedication: z.string().optional(),
   familyMedicalHistory: z.string().optional(),
   pastMedicalHistory: z.string().optional(),
-  identificationType: z.string().optional(),
-  identificationNumber: z.string().optional(),
+  identificationType: z.string().min(2, "Identification type is required"),
+  identificationNumber: z
+    .string()
+    .min(2, "Identification number is required")
+    .regex(/^[a-zA-Z0-9 ]+$/, "Identification number must be alphanumeric"),
   identificationDocument: z.custom<File[]>().optional(),
   treatmentConsent: z.boolean().refine((value) => value === true, {
     message: "You must consent to treatment in order to proceed",
