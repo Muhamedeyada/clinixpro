@@ -7,6 +7,7 @@ import { Appointment } from "@/types/appwrite.types";
 
 import {
   APPOINTMENT_COLLECTION_ID,
+  PATIENT_COLLECTION_ID,
   DATABASE_ID,
   databases,
   messaging,
@@ -47,33 +48,50 @@ export const getRecentAppointmentList = async () => {
       cancelledCount: 0,
     };
 
-    const counts = appointments.documents.reduce(
-      (acc, appointment) => {
-        switch (appointment.status) {
-          case "scheduled":
-            acc.scheduledCount++;
-            break;
-          case "pending":
-            acc.pendingCount++;
-            break;
-          case "cancelled":
-            acc.cancelledCount++;
-            break;
+    const counts = appointments.documents.reduce((acc, appointment) => {
+      switch (appointment.status) {
+        case "scheduled":
+          acc.scheduledCount++;
+          break;
+        case "pending":
+          acc.pendingCount++;
+          break;
+        case "cancelled":
+          acc.cancelledCount++;
+          break;
+      }
+      return acc;
+    }, initialCounts);
+    const populatedDocuments = await Promise.all(
+      appointments.documents.map(async (appointment) => {
+        if (typeof appointment.patient === "string") {
+          try {
+            const patientDoc = await databases.getDocument(
+              DATABASE_ID!,
+              PATIENT_COLLECTION_ID!,
+              appointment.patient,
+            );
+            return { ...appointment, patient: patientDoc };
+          } catch {
+            return {
+              ...appointment,
+              patient: { name: appointment.userId, $id: appointment.patient },
+            };
+          }
         }
-        return acc;
-      },
-      initialCounts,
+        return appointment;
+      }),
     );
 
     const data = {
       totalCount: appointments.total,
       ...counts,
-      documents: appointments.documents,
+      documents: populatedDocuments,
     };
 
     return parseStringify(data);
   } catch (error) {
-    // Error handling
+    console.error("Error fetching appointments:", error);
   }
 };
 
