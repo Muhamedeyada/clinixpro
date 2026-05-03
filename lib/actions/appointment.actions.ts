@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, unstable_noStore as noStore } from "next/cache";
 import { ID, Query } from "node-appwrite";
 
 import { Appointment } from "@/types/appwrite.types";
@@ -35,6 +35,7 @@ export const createAppointment = async (
 
 //  GET RECENT APPOINTMENTS
 export const getRecentAppointmentList = async () => {
+  noStore();
   try {
     const appointments = await databases.listDocuments<Appointment>(
       DATABASE_ID!,
