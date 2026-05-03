@@ -35,7 +35,7 @@ export function AdminContent({
             height={32}
             width={162}
             alt="logo"
-            className="h-8 w-fit hidden dark:block"
+            className="h-6 md:h-8 w-fit hidden dark:block"
           />
           {/* Light mode logo */}
           <Image
@@ -43,10 +43,10 @@ export function AdminContent({
             height={32}
             width={162}
             alt="logo"
-            className="h-8 w-fit block dark:hidden"
+            className="h-6 md:h-8 w-fit block dark:hidden"
           />
         </Link>
-        <p className="text-16-semibold text-foreground hidden md:block">{t("title")}</p>
+        <p className="text-14-semibold md:text-16-semibold text-foreground">{t("title")}</p>
       </header>
 
       <main className="admin-main mx-auto w-full max-w-7xl pt-10">

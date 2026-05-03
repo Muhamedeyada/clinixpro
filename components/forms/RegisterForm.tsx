@@ -140,8 +140,8 @@ const RegisterForm = ({ user }: { user: User }) => {
   };
 
   const personalInfo = (
-    <section className="space-y-6">
-      <div className="mb-9 space-y-1">
+    <section className="space-y-4 md:space-y-6">
+      <div className="mb-6 md:mb-9 space-y-1">
         <h2 className="sub-header">{t("personalInfo")}</h2>
       </div>
 
@@ -257,8 +257,8 @@ const RegisterForm = ({ user }: { user: User }) => {
   );
 
   const medicalInfo = (
-    <section className="space-y-6 mt-12 md:mt-0">
-      <div className="mb-9 space-y-1">
+    <section className="space-y-4 md:space-y-6 mt-8 md:mt-0">
+      <div className="mb-6 md:mb-9 space-y-1">
         <h2 className="sub-header">{t("medicalInfo")}</h2>
       </div>
 
@@ -346,8 +346,8 @@ const RegisterForm = ({ user }: { user: User }) => {
 
   const idAndConsent = (
     <>
-      <section className="space-y-6">
-        <div className="mb-9 space-y-1">
+      <section className="space-y-4 md:space-y-6">
+        <div className="mb-6 md:mb-9 space-y-1">
           <h2 className="sub-header">{t("identificationSection")}</h2>
         </div>
 
@@ -389,8 +389,8 @@ const RegisterForm = ({ user }: { user: User }) => {
         />
       </section>
 
-      <section className="space-y-6 mt-12">
-        <div className="mb-9 space-y-1">
+      <section className="space-y-4 md:space-y-6 mt-8 md:mt-12">
+        <div className="mb-6 md:mb-9 space-y-1">
           <h2 className="sub-header">{t("consentSection")}</h2>
         </div>
 
@@ -425,11 +425,11 @@ const RegisterForm = ({ user }: { user: User }) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit, onError)}
-        className="flex-1 space-y-12 pb-20"
+        className="flex-1 space-y-8 md:space-y-12 pb-20"
       >
-        <section className="space-y-4">
+        <section className="space-y-2 md:space-y-4">
           <h1 className="header">{t("title")}</h1>
-          <p className="text-dark-700">{t("subtitle")}</p>
+          <p className="text-dark-700 text-sm md:text-base">{t("subtitle")}</p>
         </section>
 
         {!isMobile ? (

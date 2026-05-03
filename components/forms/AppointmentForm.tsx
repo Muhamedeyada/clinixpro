@@ -136,9 +136,9 @@ export const AppointmentForm = ({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
         {type === "create" && (
-          <section className="mb-12 space-y-4">
+          <section className="mb-8 md:mb-12 space-y-2 md:space-y-4">
             <h1 className="header">{t("createTitle")}</h1>
-            <p className="text-dark-700">{t("createSubtitle")}</p>
+            <p className="text-dark-700 text-sm md:text-base">{t("createSubtitle")}</p>
           </section>
         )}
 

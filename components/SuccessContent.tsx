@@ -31,7 +31,7 @@ export function SuccessContent({
             height={1000}
             width={1000}
             alt="logo"
-            className="h-10 w-fit"
+            className="h-8 md:h-10 w-fit"
           />
         </Link>
 
@@ -41,12 +41,13 @@ export function SuccessContent({
             height={300}
             width={280}
             alt="success"
+            className="size-[200px] md:size-[300px]"
           />
-          <h2 className="header mb-6 max-w-[600px] text-center">
+          <h2 className="header mb-4 md:mb-6 max-w-[600px] text-center">
             {t("heading")}{" "}
             <span className="text-green-500">{t("headingHighlight")}</span>
           </h2>
-          <p>{t("message")}</p>
+          <p className="text-sm md:text-base text-center">{t("message")}</p>
         </section>
 
         <section className="request-details">
