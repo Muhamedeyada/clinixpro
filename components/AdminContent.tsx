@@ -27,7 +27,7 @@ export function AdminContent({
 
   return (
     <div className="flex flex-col min-h-screen bg-[var(--dark-200)]">
-      <header className="admin-header">
+      <header className="admin-header ltr:md:pr-[200px] rtl:md:pl-[200px]">
         <Link href="/" className="cursor-pointer flex items-center">
           {/* Dark mode logo */}
           <Image
@@ -46,7 +46,9 @@ export function AdminContent({
             className="h-6 md:h-8 w-fit block dark:hidden"
           />
         </Link>
-        <p className="text-14-semibold md:text-16-semibold text-foreground">{t("title")}</p>
+        <p className="text-14-semibold md:text-16-semibold text-foreground">
+          {t("title")}
+        </p>
       </header>
 
       <main className="admin-main mx-auto w-full max-w-7xl pt-10">

@@ -22,7 +22,7 @@ export function ThemeToggle() {
       size="icon"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Toggle theme"
-      className="min-w-[44px] min-h-[44px] text-dark-700 hover:text-white"
+      className="text-dark-700 hover:text-white"
     >
       {isDark ? (
         <svg

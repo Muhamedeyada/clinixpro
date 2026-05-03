@@ -33,14 +33,14 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-dark-300 font-sans antialiased text-[var(--foreground)] transition-colors duration-300",
-          fontSans.variable
+          fontSans.variable,
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <IntlProvider>
-            <div className="fixed top-4 ltr:right-4 rtl:left-4 z-50 flex items-center gap-2 p-1 bg-dark-400 dark:bg-dark-500/50 rounded-full border border-dark-500 shadow-sm">
+            <div className="fixed top-2 ltr:right-4 rtl:left-4 z-50 flex items-center gap-1.5 p-1.5 bg-dark-400/80 dark:bg-dark-500/40 backdrop-blur-md rounded-full border border-dark-500/50 shadow-lg transition-all hover:bg-dark-400 dark:hover:bg-dark-500/60">
               <ThemeToggle />
-              <div className="w-[1px] h-4 bg-dark-600/30 mx-1" />
+              <div className="w-[1px] h-4 bg-dark-600/30 mx-0.5" />
               <LanguageToggle />
             </div>
             {children}
